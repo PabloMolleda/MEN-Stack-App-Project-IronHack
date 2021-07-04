@@ -3,11 +3,7 @@ const Schema = mongoose.Schema;
 
 const payrollSchema = new Schema(
   {
-    user: {
-
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User'
-    },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     employee: {
       name: {
         type: String,
@@ -25,18 +21,15 @@ const payrollSchema = new Schema(
       },
       address: {
         // set: value => value.charAt(0).toUpperCase() + value.substring(1)
-        street: String,
-        buildingNumber: String,
-        zipCode: String,
-        city: String,
-        country: String
+        street: { type: String, default: null },
+        buildingNumber: { type: String, default: null },
+        zipCode: { type: String, default: null },
+        city: { type: String, default: null },
+        country: { type: String, default: null }
       },
-      phone: String, // prefijo del pais
-
+      phone: { type: String, default: null }, // prefijo del pais
       employeeId: { type: String, require: true }, // que acabe con letra
-
       NIN: { type: String, require: true },
-
       profesionalTitle: {
         type: String,
         minLegth: 1,
@@ -45,53 +38,25 @@ const payrollSchema = new Schema(
         set: value => value.charAt(0).toUpperCase() + value.substring(1)
       },
     },
-    seniorityDate: Date,
-
-    date: {
-      payrollStartDate: { type: Date, require: true },
-
-      payrollEndDate: { type: Date, require: true },
-
-      payrollDate: {
-        type: Date,
-        require: true,
-        default: Date.now
-      }
+    seniorityDate: { type: Date, require: true },
+    payrollDates: {
+      startDate: { type: Date, require: true },
+      endDate: { type: Date, require: true },
+      signDate: { type: Date, require: true, default: Date.now }
     },
     weeklyHours: { type: Number, require: true },
-
     hoursWage: { type: Number, require: true },
-
-    yearlyBonus: Number,
-
+    yearlyBonus: { type: Number, default: null },
     percentage: {
-      NIN: {
-        type: Number,
-        require: true,
-        min: 0,
-        max: 100
-      },
-      TAX: {
-        type: Number,
-        require: true,
-        min: 0,
-        max: 100
-      },
-      VAT: {
-        type: Number,
-        require: true,
-        min: 0,
-        max: 100
-      }
+      NIN: { type: Number, require: true, min: 0, max: 100 },
+      TAX: { type: Number, require: true, min: 0, max: 100 },
+      VAT: { type: Number, require: true, min: 0, max: 100 }
     }
-
   },
-  {
-    timestamps: true
-  }
-);
+  { timestamps: true }
+)
 
-const Payroll = mongoose.model('Payroll', payrollSchema);
+const Payroll = mongoose.model('Payroll', payrollSchema)
 
 module.exports = Payroll;
 

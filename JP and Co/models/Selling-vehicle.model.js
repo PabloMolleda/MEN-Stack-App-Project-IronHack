@@ -14,12 +14,24 @@ const sellingCarSchema = new Schema({
   vehiclePlate: { type: String, required: true },
   conditions: { type: String },
   buyer: {
-    name: { type: String, required: true },
-    surname: { type: String, required: true },
+    name: {
+      type: String,
+      minLegth: 1,
+      maxLength: 50,
+      require: true,
+      set: value => value.charAt(0).toUpperCase() + value.substring(1)
+    },
+    surname: {
+      type: String,
+      minLegth: 1,
+      maxLength: 50,
+      require: true,
+      set: value => value.charAt(0).toUpperCase() + value.substring(1)
+    },
     personalId: { type: String, required: true },
     address: {
       street: { type: String, required: true },
-      buildingNumber: { type: String },
+      buildingNumber: { type: String, default: null },
       zipCode: { type: String, required: true },
       city: { type: String, required: true },
       country: { type: String, required: true }
