@@ -48,12 +48,12 @@ const userSchema = new Schema({
       maxLength: 100,
       required: true
     },
-  }, 
+  },
   role: {
     type: String,
     enum: ['CLIENT', 'ADMIN'],
     default: 'CLIENT'
-  }
+  },
   companyAddress: {
     companyStreet: { type: String, required: true },
     companyBuildingNumber: { type: String, default: null },
