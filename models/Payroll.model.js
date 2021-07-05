@@ -47,7 +47,7 @@ const payrollSchema = new Schema(
       hoursWage: { type: Number, required: true },
       yearlyBonus: { type: Number, default: null, required: true },
       percentage: {
-        NIN: { type: Number, required: true, min: 0, max: 100 },
+        NINpercentage: { type: Number, required: true, min: 0, max: 100 },
         TAX: { type: Number, required: true, min: 0, max: 100 },
         VAT: { type: Number, required: true, min: 0, max: 100 }
       },

@@ -30,19 +30,6 @@ router.post("/create", (req, res) => {
         VAT
     } = req.body
     console.log(req.body)
-    const employee = {
-        name,
-        surname,
-        street,
-        buildingNumber,
-        zipCode,
-        city,
-        country,
-        phone,
-        employeeId,
-        NIN,
-        profesionalTitle
-    }
     const address = {
         street,
         buildingNumber,
@@ -50,6 +37,16 @@ router.post("/create", (req, res) => {
         city,
         country
     }
+    const employee = {
+        name,
+        surname,
+        address,
+        phone,
+        employeeId,
+        NIN,
+        profesionalTitle
+    }
+
     const payrollDates = {
         startDate,
         endDate,
@@ -60,18 +57,17 @@ router.post("/create", (req, res) => {
         TAX,
         VAT
     }
+    const payrollDetails = {
+        seniorityDate,
+        payrollDates,
+        weeklyHours,
+        hoursWage,
+        yearlyBonus,
+        percentage
+    }
 
     Payroll
-        .create(
-            {
-                employee,
-                seniorityDate,
-                payrollDates,
-                weeklyHours,
-                hoursWage,
-                yearlyBonus,
-                percentage
-            })
+        .create({ employee, payrollDetails })
         // .populate('user')
         .then(newPayroll => {
             res.redirect('/services/hr/payroll/list')
