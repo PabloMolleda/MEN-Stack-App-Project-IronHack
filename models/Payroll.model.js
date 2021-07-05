@@ -10,7 +10,7 @@ const payrollSchema = new Schema(
         required: true,
         set: value => value.charAt(0).toUpperCase() + value.substring(1)
       },
-      surname: {
+      lastName: {
         type: String,
         minLegth: 1,
         maxLength: 50,

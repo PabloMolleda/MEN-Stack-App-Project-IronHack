@@ -6,6 +6,6 @@ module.exports = app => {
   app.use('/services/hr/payroll', require('./payroll.routes.js'))
   app.use('/services/hr/new-hire-agreement', require('./new-hire.routes.js'))
   app.use('/services/business/invoice', require('./invoice.routes.js'))
-  //   app.use('/', require('./auth.routes.js'))
+  app.use('/', require('./auth.routes.js'))
   //   app.use('/user', require('./user.routes.js'))
 }
