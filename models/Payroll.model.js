@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 const payrollSchema = new Schema(
   {
-    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
     employee: {
       name: {
         type: String,
@@ -38,20 +37,23 @@ const payrollSchema = new Schema(
         set: value => value.charAt(0).toUpperCase() + value.substring(1)
       },
     },
-    seniorityDate: { type: Date, required: true },
-    payrollDates: {
-      startDate: { type: Date, required: true },
-      endDate: { type: Date, required: true },
-      signDate: { type: Date, required: true, default: Date.now }
+    payrollDetails: {
+      seniorityDate: { type: Date, required: true },
+      payrollDates: {
+        startDate: { type: Date, required: true },
+        endDate: { type: Date, required: true },
+        signDate: { type: Date, required: true, default: Date.now }
+      },
+      weeklyHours: { type: Number, required: true },
+      hoursWage: { type: Number, required: true },
+      yearlyBonus: { type: Number, default: null, required: true },
+      percentage: {
+        NIN: { type: Number, required: true, min: 0, max: 100 },
+        TAX: { type: Number, required: true, min: 0, max: 100 },
+        VAT: { type: Number, required: true, min: 0, max: 100 }
+      },
     },
-    weeklyHours: { type: Number, required: true },
-    hoursWage: { type: Number, required: true },
-    yearlyBonus: { type: Number, default: null, required: true },
-    percentage: {
-      NIN: { type: Number, required: true, min: 0, max: 100 },
-      TAX: { type: Number, required: true, min: 0, max: 100 },
-      VAT: { type: Number, required: true, min: 0, max: 100 }
-    }
+      user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }
 )

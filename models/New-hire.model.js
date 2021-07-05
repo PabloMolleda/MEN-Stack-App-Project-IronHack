@@ -3,7 +3,6 @@ const Schema = mongoose.Schema
 
 const newHireSchema = new Schema(
   {
-    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
     contract: {
       contractType: {
         type: String,
@@ -48,7 +47,8 @@ const newHireSchema = new Schema(
       trialPeriodDuration: { type: Number, default: null, required: true },
       location: { type: String, default: 'Remote', required: true },
       signDate: { type: Date, default: Date.now, required: true }
-    }
+    },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }
 )

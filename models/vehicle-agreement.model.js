@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const vehicleAgreementSchema = new Schema({
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   purchasePrice: { type: Number, required: true },
   vehicleInfo: {
     year: { type: Number, required: true },
@@ -40,7 +39,8 @@ const vehicleAgreementSchema = new Schema({
     }
   },
   agreementDate: { type: Date, required: true },
-  signDate: { type: Date, required: true }
+  signDate: { type: Date, required: true },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 },
   { timestamps: true }
 )

@@ -3,7 +3,6 @@ const Schema = mongoose.Schema
 
 const invoiceSchema = new Schema(
   {
-    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
     date: {
       invoiceDate: { type: Date, required: true },
       paymentDate: { type: Date, required: true },
@@ -31,17 +30,18 @@ const invoiceSchema = new Schema(
         required: true,
         set: value => value.charAt(0).toUpperCase() + value.substring(1)
       },
-      email: { type: String, minLegth: 5, maxLength: 100, default: null},
+      email: { type: String, minLegth: 5, maxLength: 100, default: null },
       address: {
         // set: value => value.charAt(0).toUpperCase() + value.substring(1)
         street: { type: String, default: null, required: true },
-        buildingNumber: { type: String, default: null, required: true},
+        buildingNumber: { type: String, default: null, required: true },
         zipCode: { type: String, default: null, required: true },
         city: { type: String, default: null, required: true },
         country: { type: String, default: null, required: true }
       },
       phone: { type: String, default: null, required: true } // prefijo del pais
-    }
+    },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }
 )
