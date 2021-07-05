@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const vehicleAgreementSchema = new Schema({
-  company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   purchasePrice: { type: Number, required: true },
   vehicleInfo: {
     year: { type: Number, required: true },
