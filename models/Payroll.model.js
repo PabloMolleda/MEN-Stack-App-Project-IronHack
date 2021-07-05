@@ -1,4 +1,4 @@
-const mongoose = require(‘mongoose’);
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const payrollSchema = new Schema(
   {
@@ -52,11 +52,11 @@ const payrollSchema = new Schema(
         VAT: { type: Number, required: true, min: 0, max: 100 }
       },
     },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: ‘User’ }
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }
 )
-const Payroll = mongoose.model(‘Payroll’, payrollSchema)
+const Payroll = mongoose.model('Payroll', payrollSchema)
 module.exports = Payroll;
 
 
