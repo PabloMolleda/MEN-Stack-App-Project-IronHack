@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const newHireSchema = new Schema(
   {
-    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     contract: {
       contractType: {
         type: String,
