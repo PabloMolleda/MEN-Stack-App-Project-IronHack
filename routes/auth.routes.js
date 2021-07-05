@@ -8,16 +8,10 @@ router.get('/register', (req, res) => res.render('users/sign-up'))
 
 router.post('/register', (req, res) => {
 
-  const { email, password, name, surname, personalId, phone, street, buildingNumber, 
-        zipCode, city, country, companyName, companyId, companyPhone, companyEmail, 
-        role, companyStreet, companyBuildingNumber, companyZipCode, companyCity, 
-        companyCountry } = req.body
+  const { email, password, name, lastName, personalId, phone, street, buildingNumber, 
+        zipCode, city, country, role } = req.body
 
 const address = { street, buildingNumber, zipCode, city, country }
-
-const company = { companyName, companyId, companyPhone, companyEmail }
-
-const companyAddress = { companyStreet, companyBuildingNumber, companyZipCode, companyCity, companyCountry }
 
   User
     .findOne({ email })
@@ -33,7 +27,7 @@ const companyAddress = { companyStreet, companyBuildingNumber, companyZipCode, c
       const hashPass = bcrypt.hashSync(pwd, salt)
 
       User
-        .create({ email, password, name, surname, personalId, phone, address, role, company  })
+        .create({ email, password: hashPass, name, lastName, personalId, phone, address, role })
         .then(() => res.redirect('/'))
         .catch(err => console.log(err))
 
@@ -43,7 +37,34 @@ const companyAddress = { companyStreet, companyBuildingNumber, companyZipCode, c
 
 // Log in
 
+router.get('/log-in', (req, res) => res.render('users/log-in'))
+
+router.post('/log-in', (req, res) => {
+
+    const { username, password } = req.body
+
+    User
+        .findOne({ username })
+        .then(user => {
+
+            if (!user) {
+                res.render('users/log-in', { errorMessage: 'Unknown User' })
+                return
+            }
+
+            if (bcrypt.compareSync(password, user.password) === false) {
+                res.render('users/log-in', { errorMessage: 'Wrong Password' })
+                return
+            }
+            req.session.currentUser = user
+            res.redirect('/')
+        })
+        .catch(err => console.log(err))
+})
+
 // Log off
+
+router.get('/log-off', (req, res) => req.session.destroy(() => res.redirect('/')))
 
 
 module.exports = router
