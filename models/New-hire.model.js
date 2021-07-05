@@ -1,16 +1,16 @@
-const mongoose = require('mongoose');
+const mongoose = required('mongoose');
 const Schema = mongoose.Schema
 
-const NewHireSchema = new Schema(
+const newHireSchema = new Schema(
   {
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
     contract: {
       contractType: {
         type: String,
         enum: ['permanent', 'fixed-term', 'casual', 'zero-hour'],
         required: true
       },
-      duration: { type: String, default: null },
+      duration: { type: String, default: null, required: true },
       positionTitle: { type: String, required: true }
     },
     employee: {
@@ -18,14 +18,14 @@ const NewHireSchema = new Schema(
         type: String,
         minLegth: 1,
         maxLength: 50,
-        require: true,
+        required: true,
         set: value => value.charAt(0).toUpperCase() + value.substring(1)
       },
       surname: {
         type: String,
         minLegth: 1,
         maxLength: 50,
-        require: true,
+        required: true,
         set: value => value.charAt(0).toUpperCase() + value.substring(1)
       },
       address: {
@@ -45,14 +45,14 @@ const NewHireSchema = new Schema(
       weeklyHours: { type: Number, required: true },
       yearlyBonus: { type: Number, required: true },
       functions: { type: String, default: null },
-      trialPeriodDuration: { type: Number, default: null },
-      location: { type: String, default: 'Remote' },
+      trialPeriodDuration: { type: Number, default: null, required: true },
+      location: { type: String, default: 'Remote', required: true },
       signDate: { type: Date, default: Date.now, required: true }
     }
   },
   { timestamps: true }
 )
 
-const NewHire = mongoose.model('NewHire', NewHireSchema);
+const NewHire = mongoose.model('NewHire', newHireSchema)
 
-module.exports = NewHire;
+module.exports = NewHire

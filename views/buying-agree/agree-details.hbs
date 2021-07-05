@@ -1,0 +1,39 @@
+<div class="container">
+
+    <h1>{{name}}</h1>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p><strong>Local:</strong> {{type}}</p>
+        </div>
+        <div class="col-md-8">
+            <p><strong>Location:</strong> {{location.coordinates}}</p>
+        </div>
+    </div>
+
+    <hr>
+
+
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <form action="/places/details/{{id}}/delete" method="POST">
+
+                <button type="submit" class="btn btn-dark">Delete Place</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <a href="/places/list" class="btn btn-dark">Back to places's list</a>
+
+</div>
+
+   
