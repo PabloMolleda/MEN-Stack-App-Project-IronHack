@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
-const userSchema = new Schema(
+const NewHireSchema = new Schema(
   {
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     contract: {
@@ -35,7 +35,7 @@ const userSchema = new Schema(
         city: { type: String, required: true },
         country: { type: String, required: true }
       },
-      phone: String,
+      phone: { type: String, default: null },
       personalId: { type: String, required: true },
       NIN: { type: String, required: true }
     },
@@ -53,6 +53,6 @@ const userSchema = new Schema(
   { timestamps: true }
 )
 
-const User = mongoose.model('User', userSchema);
+const NewHire = mongoose.model('NewHire', NewHireSchema);
 
-module.exports = User;
+module.exports = NewHire;

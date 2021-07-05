@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const payrollSchema = new Schema(
   {
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    // user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     employee: {
       name: {
         type: String,
@@ -48,11 +48,13 @@ const payrollSchema = new Schema(
     hoursWage: { type: Number, require: true },
     yearlyBonus: { type: Number, default: null },
     percentage: {
-      NIN: { type: Number, require: true, min: 0, max: 100 },
+      NINpercentage: { type: Number, require: true, min: 0, max: 100 },
       TAX: { type: Number, require: true, min: 0, max: 100 },
       VAT: { type: Number, require: true, min: 0, max: 100 }
     }
   },
+
+
   { timestamps: true }
 )
 
