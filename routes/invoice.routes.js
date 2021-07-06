@@ -1,10 +1,8 @@
-
-
-
 const router = require("express").Router()
 const Invoice = require('./../models/Invoice.model')
 
 
+router.get('/', (req, res) => res.render('invoice/index'))
 // new invoice
 router.get("/create", (req, res) => res.render("invoice/invoice-create"))
 router.post("/create", (req, res) => {
