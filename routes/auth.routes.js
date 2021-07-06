@@ -8,31 +8,35 @@ router.get('/register', (req, res) => res.render('users/sign-up'))
 
 router.post('/register', (req, res) => {
 
-  const { email, password, name, lastName, personalId, phone, street, buildingNumber, 
+  const { mail, password, name, lastName, personalId, phone, street, buildingNumber, 
         zipCode, city, country, role } = req.body
+
+  console.log(req.body)
 
 const address = { street, buildingNumber, zipCode, city, country }
 
   User
-    .findOne({ email })
-    .then(email => {
+    .findOne({ mail })
+    .then(mail => {
 
-      if (email) {
+      if (mail) {
         res.render('users/sign-up', { errorMessage: 'Email already registered' })
         return
       }
 
       const bcryptSalt = 10
       const salt = bcrypt.genSaltSync(bcryptSalt)
-      const hashPass = bcrypt.hashSync(pwd, salt)
+      const hashPass = bcrypt.hashSync(password, salt)
 
+      console.log(req.body)
+      
       User
-        .create({ email, password: hashPass, name, lastName, personalId, phone, address, role })
+        .create({ mail, password: hashPass, name, lastName, personalId, phone, address, role })
         .then(() => res.redirect('/'))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err, 'este es el error 1'))
 
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err, 'este es el error 2'))
 })
 
 // Log in
