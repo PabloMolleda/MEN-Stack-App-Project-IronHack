@@ -9,7 +9,7 @@ const invoiceSchema = new Schema(
       accrualDate: { type: Date, required: true },
     },
     products: [{
-      name: { type: String, required: true },
+      productName: { type: String, required: true },
       price: { type: Number, required: true },
       quantity: { type: Number, required: true },
       VAT: { type: Number, required: true },

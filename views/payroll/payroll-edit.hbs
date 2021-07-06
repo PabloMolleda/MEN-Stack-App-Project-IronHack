@@ -1,0 +1,125 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-12">
+            <h1 style="font-weight: 100">Edit Payroll</h1>
+        </div>
+
+        <div class="col-12">
+
+            <form action="/company-services/hr/payroll/edit?payroll_id={{id}}" method="POST">
+                <h4>Employee</h4>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input name="name" type="text" class="form-control" id="name" value="{{employee.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input name="lastName" type="text" class="form-control" id="lastName" value="{{employee.lastName}}">
+                </div>
+                <h5>Address</h5>
+                <div class="form-group">
+                    <label for="street">Street</label>
+                    <input name="street" type="text" class="form-control" id="street"
+                        value="{{employee.address.street}}">
+                </div>
+                <div class="form-group">
+                    <label for="buildingNumber">Building Number</label>
+                    <input name="buildingNumber" type="text" class="form-control" id="buildingNumber"
+                        value="{{employee.address.buildingNumber}}">
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">Zip Code</label>
+                    <input name="zipCode" type="d" class="form-control" id="zipCode"
+                        value="{{employee.address.zipCode}}">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input name="city" type="text" class="form-control" id="city" value="{{employee.address.city}}">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input name="country" type="text" class="form-control" id="country"
+                        value="{{employee.address.country}}">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input name="phone" type="text" class="form-control" id="phone" value="{{employee.phone}}">
+                </div>
+                <div class="form-group">
+                    <label for="employeeId">Employee Id</label>
+                    <input name="employeeId" type="text" class="form-control" id="employeeId"
+                        value="{{employee.employeeId}}">
+                </div>
+                <div class=" form-group">
+                    <label for="NIN">NIN</label>
+                    <input name="NIN" type="text" class="form-control" id="NIN" value="{{employee.NIN}}">
+                </div>
+                <div class="form-group">
+                    <label for="profesionalTitle">Profesional Title</label>
+                    <input name="profesionalTitle" type="text" class="form-control" id="profesionalTitle"
+                        value="{{employee.profesionalTitle}}">
+                </div>
+                <h4>Payroll Details</h4>
+                <div class="form-group">
+                    <label for="seniorityDate">Seniority Date</label>
+                    <input name="seniorityDate" type="date" class="form-control" id="seniorityDate"
+                        value="{{payrollDetails.seniorityDate}}">
+                </div>
+                <h5>Payroll Dates</h5>
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input name="startDate" type="date" class="form-control" id="startDate"
+                        value="{{payrollDetails.payrollDates.startDate}}">
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input name="endDate" type="date" class="form-control" id="endDate"
+                        value="{{payrollDetails.payrollDates.endDate}}">
+                </div>
+                <div class="form-group">
+                    <label for="signDate">Sign Date</label>
+                    <input name="signDate" type="date" class="form-control" id="signDate"
+                        value="{{payrollDetails.payrollDates.signDate}}">
+                </div>
+                <h4>Others</h4>
+                <div class="form-group">
+                    <label for="weeklyHours">Weekly Hours</label>
+                    <input name="weeklyHours" type="number" class="form-control" id="weeklyHours"
+                        value="{{payrollDetails.weeklyHours}}">
+                </div>
+                <div class="form-group">
+                    <label for="hoursWage">Hours Wage</label>
+                    <input name="hoursWage" type="number" class="form-control" id="hoursWage"
+                        value="{{payrollDetails.hoursWage}}">
+                </div>
+                <div class="form-group">
+                    <label for="yearlyBonus">Yearly Bonus</label>
+                    <input name="yearlyBonus" type="number" class="form-control" id="yearlyBonus"
+                        value="{{payrollDetails.yearlyBonus}}">
+                </div>
+                <h4>Percentages</h4>
+                <div class="form-group">
+                    <label for="NINpercentage">NIN</label>
+                    <input name="NINpercentage" type="number" class="form-control" id="NINpercentage"
+                        value="{{payrollDetails.percentage.NINpercentage}}">
+                </div>
+                <div class="form-group">
+                    <label for="TAX">TAX</label>
+                    <input name="TAX" type="number" class="form-control" id="TAX"
+                        value="{{payrollDetails.percentage.TAX}}">
+                </div>
+                <div class="form-group">
+                    <label for="VAT">VAT</label>
+                    <input name="VAT" type="number" class="form-control" id="VAT"
+                        value="{{payrollDetails.percentage.VAT}}">
+                </div>
+
+
+                <button type="submit" class="btn btn-dark">Edit Payroll</button>
+            </form>
+        </div>
+
+    </div>
+</div>
