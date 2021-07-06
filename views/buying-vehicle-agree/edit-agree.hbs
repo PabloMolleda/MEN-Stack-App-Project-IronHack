@@ -1,32 +1,32 @@
-{{!-- <div class="container">
+<div class="container">
 
     <div class="row justify-content-center">
 
         <div class="col-md-6">
 
-            <h1>Create a new Vehicle Purchase Agreement</h1>
+            <h1>Edit your Vehicle Purchase Agreement Input</h1>
 
             <hr>
 
-            <form action="/services/legal/vehicle-agreement/create" method="POST">
+            <form action="/personal-services/legal/vehicle-agreement-buying/edit/{{id}}" method="POST">
 
                 <h4>Agreement Details</h4>
                 <div class="form-group">
                     <label for="purchasePrice">Set a purchase price</label>
-                    <input type="text" class="form-control" name="purchasePrice" id="purchasePrice">
+                    <input type="text" class="form-control" name="purchasePrice" id="purchasePrice" value='{{purchasePrice}}'>
                 </div>
                 <h4>Car Details</h4>
                 <div class="form-group">
                     <label for="year">When did you buy the vehicle?</label>
-                    <input type="count" class="form-control" name="year" id="year">
+                    <input type="count" class="form-control" name="year" id="year" value='{{vehicleInfo.year}}'>
                 </div>
                 <div class="form-group">
                     <label for="model">Especify the model of your car</label>
-                    <input type="text" class="form-control" name="model" id="model">
+                    <input type="text" class="form-control" name="model" id="model" value='{{vehicleInfo.model}}'>
                 </div>
                 <div class="form-group">
                     <label for="plate">Car Plate</label>
-                    <input type="text" class="form-control" name="plate" id="plate">
+                    <input type="text" class="form-control" name="plate" id="plate" value='{{vehicleInfo.plate}}'>
                 </div>
 
                 <div class="form-group">
@@ -40,43 +40,43 @@
 
                 <div class="form-group">
                     <label for="conditions">Do you want to add special conditions to the agreement?</label>
-                    <textarea class="form-control" name="conditions" id="conditions"></textarea>
+                    <textarea class="form-control" name="conditions" id="conditions" placeholder='{{vehicleInfo.conditions}}'></textarea>
                 </div>
                 <h4>Seller Details</h4>
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" class="form-control" name="name" id="name">
+                    <input type="text" class="form-control" name="name" id="name" value='{{subject.name}}'>
                 </div>
                 <div class="form-group">
                     <label for="lastName">Last Name:</label>
-                    <input type="text" class="form-control" name="lastName" id="lastName">
+                    <input type="text" class="form-control" name="lastName" id="lastName" value='{{subject.lastName}}'>
                 </div>
 
                 <div class="form-group">
                     <label for="personalId">Personal ID:</label>
-                    <input type="text" class="form-control" name="personalId" id="personalId">
+                    <input type="text" class="form-control" name="personalId" id="personalId" value='{{subject.personalId}}'>
                 </div>
 
                 <h5>Address</h5>
                 <div class="form-group">
                     <label for="street">Street</label>
-                    <input type="text" class="form-control" name="street" id="street">
+                    <input type="text" class="form-control" name="street" id="street" value='{{subject.address.street}}'>
                 </div>
                 <div class="form-group">
                     <label for="buildingNumber">Building Name</label>
-                    <input type="text" class="form-control" name="buildingNumber" id="buildingNumber">
+                    <input type="text" class="form-control" name="buildingNumber" id="buildingNumber" value='{{subject.address.buildingNumber}}'>
                 </div>
                 <div class="form-group">
                     <label for="zipCode">Zip Code</label>
-                    <input type="text" class="form-control" name="zipCode" id="zipCode">
+                    <input type="text" class="form-control" name="zipCode" id="zipCode" value='{{subject.address.zipCode}}'>
                 </div>
                 <div class="form-group">
                     <label for="city">City</label>
-                    <input type="text" class="form-control" name="city" id="city">
+                    <input type="text" class="form-control" name="city" id="city" value='{{subject.address.city}}'>
                 </div>
                 <div class="form-group">
                     <label for="country">Country</label>
-                    <input type="text" class="form-control" name="country" id="country">
+                    <input type="text" class="form-control" name="country" id="country" value='{{subject.address.country}}'>
                 </div>
                 <h4>Set Agreement Dates</h4>
                 <div class="form-group">
@@ -84,11 +84,11 @@
                     <input type="date" class="form-control" name="agreementDate" id="agreementDate">
                 </div>
 
-                <button type="submit" class="btn btn-dark btn-block btn-lg">Add agreement data</button>
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Edit agreement data</button>
 
             </form>
         </div>
 
     </div>
 
-</div> --}}
+</div>

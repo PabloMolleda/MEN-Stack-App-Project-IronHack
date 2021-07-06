@@ -1,5 +1,8 @@
 const router = require("express").Router()
 const NewHire = require('./../models/New-hire.model')
+
+
+router.get('/', (req, res) => res.render('new-hire/index'))
 // new agreement
 router.get("/create", (req, res) => res.render("new-hire/new-hire-create"))
 router.post("/create", (req, res) => {

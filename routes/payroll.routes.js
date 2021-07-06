@@ -1,6 +1,9 @@
 const router = require("express").Router()
 const Payroll = require('./../models/Payroll.model')
 
+
+router.get('/', (req, res) => res.render('payroll/index'))
+
 // new payroll
 router.get("/create", (req, res) => res.render("payroll/payroll-create"))
 
