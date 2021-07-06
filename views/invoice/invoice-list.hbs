@@ -1,4 +1,7 @@
-<h1>Payroll list</h1>
+<h1>Invoice list</h1>
 {{#each invoices}}
 <div>{{client.name}}</div>
+<a href="/services/business/invoice/preview/{{id}}">detalles</a>
+<a href="/services/business/invoice/delete?invoice_id={{id}}" class="btn btn-dark">Eliminar</a>
+
 {{/each}}
