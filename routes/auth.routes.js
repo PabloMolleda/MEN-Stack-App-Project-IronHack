@@ -17,9 +17,9 @@ const address = { street, buildingNumber, zipCode, city, country }
 
   User
     .findOne({ mail })
-    .then(mail => {
+    .then(user => {
 
-      if (mail) {
+      if (user) {
         res.render('users/sign-up', { errorMessage: 'Email already registered' })
         return
       }
