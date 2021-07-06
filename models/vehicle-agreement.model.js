@@ -39,7 +39,6 @@ const vehicleAgreementSchema = new Schema({
     }
   },
   agreementDate: { type: Date, required: true },
-  signDate: { type: Date, required: true },
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 },
   { timestamps: true }

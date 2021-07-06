@@ -2,12 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
-  email: {
-    type: String,
-    minLegth: 5,
-    maxLength: 100,
-    required: true
-  },
+  mail: { type: String, required: true },
   password: { type: String, required: true },      // exigir mayusculas numeros etc 
   name: {
     type: String,

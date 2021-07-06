@@ -16,14 +16,15 @@ const companySchema = new Schema({
     minLegth: 5,
     maxLength: 100,
     required: true,
-    address: {
-      street: { type: String, required: true },
-      buildingNumber: { type: String, default: null, required: true },
-      zipCode: { type: String, required: true },
-      city: { type: String, required: true },
-      country: { type: String, required: true }
-    }
+  },
+  address: {
+    street: { type: String, required: true },
+    buildingNumber: { type: String, default: null, required: true },
+    zipCode: { type: String, required: true },
+    city: { type: String, required: true },
+    country: { type: String, required: true }
   }
+
 },
   { timestamps: true }
 )
