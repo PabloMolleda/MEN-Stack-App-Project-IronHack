@@ -18,7 +18,7 @@ router.post("/create", (req, res) => {
         quantity,
         VAT,
         name,
-        surname,
+        lastName,
         email,
         street,
         buildingNumber,
@@ -45,7 +45,7 @@ router.post("/create", (req, res) => {
     }]
     const client = {
         name,
-        surname,
+        lastName,
         email,
         street,
         buildingNumber,

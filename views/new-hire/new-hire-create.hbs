@@ -11,8 +11,8 @@
             <form action="/services/business/invoice/create" method="POST">
                 <h4>Contract</h4>
                 <div class="form-group">
-                    <label for=" contractype">Contrac type</label>
-                    <input name=" contractype" type="text" class="form-control" id=" contractype">
+                    <label for="contractype">Contrac type</label>
+                    <input name="contractype" type="text" class="form-control" id="contractype">
                 </div>
                 <div class="form-group">
                     <label for="duration">Duration</label>
@@ -28,25 +28,8 @@
                     <input name="name" type="text" class="form-control" id="name">
                 </div>
                 <div class="form-group">
-                    <label for="surname">Surname</label>
-                    <input name="surname" type="text" class="form-control" id="surname">
-                </div>
-                <h5>Adress</h5>
-                <div class="form-group">
-                    <label for="street">Street</label>
-                    <input name="street" type="text" class="form-control" id="street">
-                </div>
-                <div class="form-group">
-                    <label for="buildingNumber">Name</label>
-                    <input name="name" type="text" class="form-control" id="name">
-                </div>
-                <div class="form-group">
-                    <label for="surname">Surname</label>
-                    <input name="surname" type="text" class="form-control" id="surname">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input name="email" type="text" class="form-control" id="email">
+                    <label for="lastName">Lastname</label>
+                    <input name="lastName" type="text" class="form-control" id="lastName">
                 </div>
                 <h5>Address</h5>
                 <div class="form-group">
@@ -84,19 +67,19 @@
                 <h4>Agreement Details</h4>
                 <div class="form-group">
                     <label for="startDate">Start Date</label>
-                    <input name="startDate" type="text" class="form-control" id="startDate">
+                    <input name="startDate" type="date" class="form-control" id="startDate">
                 </div>
                 <div class="form-group">
                     <label for="endDate">End Date</label>
-                    <input name="endDate" type="text" class="form-control" id="endDate">
+                    <input name="endDate" type="date" class="form-control" id="endDate">
                 </div>
                 <div class="form-group">
                     <label for="weeklyHours">Weekly Hours</label>
-                    <input name="weeklyHours" type="text" class="form-control" id="weeklyHours">
+                    <input name="weeklyHours" type="number" class="form-control" id="weeklyHours">
                 </div>
                 <div class="form-group">
                     <label for="yearlyHours">Yearly Hours</label>
-                    <input name="yearlyHours" type="text" class="form-control" id="yearlyHours">
+                    <input name="yearlyHours" type="number" class="form-control" id="yearlyHours">
                 </div>
                 <div class="form-group">
                     <label for="functions">Functions</label>
@@ -104,7 +87,7 @@
                 </div>
                 <div class="form-group">
                     <label for="trialPeriodDuration">Trial Period Duration</label>
-                    <input name="trialPeriodDuration" type="text" class="form-control" id="trialPeriodDuration">
+                    <input name="trialPeriodDuration" type="number" class="form-control" id="trialPeriodDuration">
                 </div>
                 <div class="form-group">
                     <label for="location">Location</label>
@@ -112,7 +95,7 @@
                 </div>
                 <div class="form-group">
                     <label for="signDate">Sign Date</label>
-                    <input name="signDate" type="text" class="form-control" id="signDate">
+                    <input name="signDate" type="date" class="form-control" id="signDate">
                 </div>
                 <button type="submit" class="btn btn-dark">Create</button>
             </form>

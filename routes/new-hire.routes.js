@@ -9,7 +9,7 @@ router.post("/create", (req, res) => {
         duration,
         positionTitle,
         name,
-        surname,
+        lastName,
         street,
         buildingNumber,
         zipCode,
@@ -42,7 +42,7 @@ router.post("/create", (req, res) => {
     }
     const employee = {
         name,
-        surname,
+        lastName,
         address,
         phone,
         personalId,
@@ -61,12 +61,13 @@ router.post("/create", (req, res) => {
     NewHire
         .create({ contract, employee, agreementDetails })
         .then(theNewHire => {
-            res.send('holi')
+            res.redirect('/services/hr/new-hire-agreement/list')
             console.log(theNewHire)
         })
         .catch(err => console.log(err))
 })
 // agreements list
+router.get("/list", (req, res) => res.render("new-hire/new-hire-list"))
 
 // see agreement details
 

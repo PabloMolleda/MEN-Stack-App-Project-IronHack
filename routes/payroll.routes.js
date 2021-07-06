@@ -8,7 +8,7 @@ router.post("/create", (req, res) => {
 
     const {
         name,
-        surname,
+        lastName,
         street,
         buildingNumber,
         zipCode,
@@ -39,7 +39,7 @@ router.post("/create", (req, res) => {
     }
     const employee = {
         name,
-        surname,
+        lastName,
         address,
         phone,
         employeeId,
@@ -85,11 +85,33 @@ router.get("/list", (req, res) => {
         .catch(err => console.log(err))
 })
 
+// delete payroll
+router.get('/delete', (req, res) => {
+    ///coasters/delete ?id={{id}}
+    const { payroll_id } = req.query
 
+    Payroll
+
+        .findByIdAndRemove(payroll_id)
+        .then(() => res.redirect('/services/hr/payroll/list'))
+        .catch(err => console.log(err))
+
+})
+// edit payroll
 
 // see payroll details
+router.get("/preview/:payroll_id", (req, res) => {
 
-// delete payroll
+    const { payroll_id } = req.params
+    console.log(req.params)
+    Payroll
+        .findById(payroll_id)
+        .then(payroll => {
+            res.render("payroll/payroll-preview", payroll)
+            console.log(payroll)
+        })
+        .catch(err => console.log(err))
+})
 
 // edit payroll
 
