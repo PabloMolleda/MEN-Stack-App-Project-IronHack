@@ -1,0 +1,120 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-12">
+            <h1 style="font-weight: 100">Edit Hire Agreement</h1>
+        </div>
+
+        <div class="col-12">
+
+            <form action="/services/hr/new-hire-agreement/edit?newHire_id={{id}}" method="POST">
+                <h4>Contract</h4>
+                <div class="form-group">
+                    <label for="contractType">Contract Type</label>
+                    <input name="contractType" type="text" class="form-control" id="contractType"
+                        value="{{contract.contractType}}">
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration</label>
+                    <input name="duration" type="text" class="form-control" id="duration" value="{{contract.duration}}">
+                </div>
+                <div class="form-group">
+                    <label for="positionTitle">Position Title</label>
+                    <input name="positionTitle" type="text" class="form-control" id="positionTitle"
+                        value="{{contract.positionTitle}}">
+                </div>
+                <h4>Employee</h4>
+                <div class="form-group">
+                    <label for="name" Name></label>
+                    <input name="name" type="text" class="form-control" id="name" value="{{employee.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input name="lastName" type="text" class="form-control" id="lastName" value="{{employee.lastName}}">
+                </div>
+                <h5>Address</h5>
+                <div class="form-group">
+                    <label for="street">Street</label>
+                    <input name="street" type="text" class="form-control" id="street"
+                        value="{{employee.address.street}}">
+                </div>
+                <div class="form-group">
+                    <label for="buildingNumber">BuildingNumber</label>
+                    <input name="buildingNumber" type="text" class="form-control" id="buildingNumber"
+                        value="{{employee.address.buildingNumber}}">
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">Zip Code</label>
+                    <input name="zipCode" type="text" class="form-control" id="zipCode"
+                        value="{{employee.address.zipCode}}">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input name="city" type="text" class="form-control" id="city" value="{{employee.address.city}}">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input name="country" type="text" class="form-control" id="country"
+                        value="{{employee.address.country}}">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input name="phone" type="text" class="form-control" id="phone" value="{{employee.phone}}">
+                </div>
+                <div class="form-group">
+                    <label for="personalId">Personal Id</label>
+                    <input name="personalId" type="text" class="form-control" id="personalId"
+                        value="{{employee.personalId}}">
+                </div>
+                <div class="form-group">
+                    <label for="NIN">NIN</label>
+                    <input name="NIN" type="text" class="form-control" id="NIN" value="{{employee.NIN}}">
+                </div>
+                <h4>Agreement Details</h4>
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input name="startDate" type="date" class="form-control" id="startDate"
+                        value="{{agreementDetails.Startdate}}">
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input name="endDate" type="date" class="form-control" id="endDate"
+                        value="{{agreementDetails.endDate}}">
+                </div>
+                <div class="form-group">
+                    <label for="weeklyHours">Weekly Hours</label>
+                    <input name="weeklyHours" type="number" class="form-control" id="weeklyHours"
+                        value="{{agreementDetails.weeklyHours}}">
+                </div>
+                <div class="form-group">
+                    <label for="yearlyBonus">yearly Bonus</label>
+                    <input name="yearlyBonus" type="number" class="form-control" id="yearlyBonus"
+                        value="{{agreementDetails.yearlyBonus}}">
+                </div>
+                <div class="form-group">
+                    <label for="functions">Functions</label>
+                    <input name="functions" type="text" class="form-control" id="functions"
+                        value="{{agreementDetails.functions}}">
+                </div>
+                <div class="form-group">
+                    <label for="trialPeriodDuration">Trial Period Duration</label>
+                    <input name="trialPeriodDuration" type="number" class="form-control" id="trialPeriodDuration"
+                        value="{{agreementDetails.trialPeriodDuration}}">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input name="location" type="text" class="form-control" id="location"
+                        value="{{agreementDetails.location}}">
+                </div>
+                <div class="form-group">
+                    <label for="signDate">Sign Date</label>
+                    <input name="signDate" type="date" class="form-control" id="signDate"
+                        value="{{agreementDetails.SignDate}}">
+                </div>
+                <button type="submit" class="btn btn-dark">Edit</button>
+            </form>
+        </div>
+
+    </div>
+</div>

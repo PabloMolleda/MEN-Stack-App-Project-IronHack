@@ -1,1 +1,7 @@
-<h1>hola</h1>
+<h1>New hire list</h1>
+{{#each newHires}}
+<div>{{employee.name}}</div>
+<a href="/services/hr/new-hire-agreement/preview/{{id}}">detalles</a>
+<a href="/services/hr/new-hire-agreement/delete?newHire_id={{id}}" class="btn btn-dark">Eliminar</a>
+<a href="/services/hr/new-hire-agreement/edit?newHire_id={{id}}" class="btn btn-dark">Editar</a>
+{{/each}}

@@ -2,5 +2,6 @@
 {{#each payrolls}}
 <div>{{employee.name}}</div>
 <a href="/services/hr/payroll/preview/{{id}}">detalles</a>
+
 <a href="/services/hr/payroll/delete?payroll_id={{id}}" class="btn btn-dark">Eliminar</a>
 {{/each}}

@@ -74,9 +74,39 @@ router.get("/list", (req, res) => {
         .catch(err => console.log(err))
 })
 
-// see invoice details
 
 // delete invoice
+
+router.get('/delete', (req, res) => {
+
+    const { invoice_id } = req.query
+
+    Invoice
+
+        .findByIdAndRemove(invoice_id)
+        .then(() => res.redirect("/services/business/invoice/list"))
+        .catch(err => console.log(err))
+
+})
+// see invoice details
+
+router.get("/preview/:invoice_id", (req, res) => {
+
+    const { invoice_id } = req.params
+    console.log(req.params)
+    Invoice
+        .findById(invoice_id)
+        .then(invoice => {
+            res.render("invoice/invoice-preview", invoice)
+            console.log(invoice)
+        })
+        .catch(err => console.log(err))
+})
+
+
+
+
+
 
 // edit invoice
 
