@@ -3,17 +3,20 @@ const User = require('./../models/User.model')
 const { checkLoggedUser } = require('./../middleware')
 
 
-router.get('/my-profile', checkLoggedUser, (req, res) => res.render('profile/index'))
+router.get('/my-profile', checkLoggedUser, (req, res) => {
+
+    const {currentUser} = req.session
+
+    res.render('profile/index', currentUser)
+
+})
 
 
-router.get('/my-profile/edit', (req, res) => {
+router.get('/my-profile/edit', checkLoggedUser, (req, res) => {
 
-    const { user_id } = req.query
+    const {currentUser} = req.session
 
-    User
-        .findById(user_id)
-        .then(user => res.render('profile/edit-profile', user))
-        .catch(err => console.log(err))
+    res.render('profile/edit-profile', currentUser)
 })
 
 

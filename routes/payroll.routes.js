@@ -11,12 +11,14 @@ router.get("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.re
 
 router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    const address = { street, buildingNumber, zipCode, city, country } = req.body
+    const address = { street, buildingNumber, zipCode, city, country } 
     const employee = { name, lastName, address, phone, employeeId, NIN, profesionalTitle } = req.body
 
     const payrollDates = { startDate, endDate, signDate } = req.body
     const percentage = { NINpercentage, TAX, VAT } = req.body
-    const payrollDetails = { seniorityDate, payrollDates, weeklyHours, hoursWage, yearlyBonus, percentage } = req.body
+    const payrollDetails = { seniorityDate, weeklyHours, hoursWage, yearlyBonus } = req.body
+
+    console.log(req.body)
 
     Payroll
         .create({ employee, payrollDetails })

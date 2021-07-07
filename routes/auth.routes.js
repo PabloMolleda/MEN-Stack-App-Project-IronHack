@@ -2,13 +2,12 @@ const router = require("express").Router()
 const bcrypt = require('bcrypt')
 const User = require('./../models/User.model')
 
-// Sign up
 
 router.get('/register', (req, res) => res.render('users/sign-up'))
 
 router.post('/register', (req, res) => {
 
-  const { mail, password, name, lastName, personalId, phone, role } = req.body
+  const { mail, pwd, name, lastName, personalId, phone, role } = req.body
 
   const address = { street, buildingNumber, zipCode, city, country } = req.body
 
@@ -23,7 +22,7 @@ router.post('/register', (req, res) => {
 
       const bcryptSalt = 10
       const salt = bcrypt.genSaltSync(bcryptSalt)
-      const hashPass = bcrypt.hashSync(password, salt)
+      const hashPass = bcrypt.hashSync(pwd, salt)
 
       console.log(req.body)
 
@@ -36,16 +35,15 @@ router.post('/register', (req, res) => {
     .catch(err => console.log(err, 'este es el error 2'))
 })
 
-// Log in
 
 router.get('/log-in', (req, res) => res.render('users/log-in'))
 
 router.post('/log-in', (req, res) => {
 
-  const { username, password } = req.body
+  const { mail, pwd } = req.body
 
   User
-    .findOne({ username })
+    .findOne({ mail })
     .then(user => {
 
       if (!user) {
@@ -53,7 +51,7 @@ router.post('/log-in', (req, res) => {
         return
       }
 
-      if (bcrypt.compareSync(password, user.password) === false) {
+      if (bcrypt.compareSync(pwd, user.password) === false) {
         res.render('users/log-in', { errorMessage: 'Wrong Password' })
         return
       }
@@ -63,7 +61,6 @@ router.post('/log-in', (req, res) => {
     .catch(err => console.log(err))
 })
 
-// Log off
 
 router.get('/log-off', (req, res) => req.session.destroy(() => res.redirect('/')))
 

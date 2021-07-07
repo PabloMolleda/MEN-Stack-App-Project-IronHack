@@ -1,39 +1,43 @@
 const router = require("express").Router()
 const VehicleAgreement = require('../models/Vehicle-agreement.model')
-const { checkLoggedUser, checkCompanyOrAdmin } = require('../middleware')
+const { checkLoggedUser, checkPersonalOrAdmin } = require('../middleware')
 
-router.get('/', (req, res) => res.render('selling-vehicle-agree/index'))
-
-
-router.get('/create', checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.render('selling-vehicle-agree/new-agreement'))
+router.get('/', (req, res) => res.render('vehicle-agree/index'))
 
 
-router.post('/create', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
+router.get('/create', checkLoggedUser, checkPersonalOrAdmin, (req, res) => res.render('vehicle-agree/new-agreement'))
 
-  const { purchasePrice, agreementDate } = req.body
+
+router.post('/create', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
+
+  const { purchasePrice, agreementDate, street, buildingNumber,
+    zipCode, city, country, name, lastName, personalId, typeOfAgreement } = req.body
 
   const vehicleInfo = { year, status, model, plate, conditions } = req.body
-  const address = { street, buildingNumber, zipCode, city, country } = req.body
-  const subject = { name, lastName, personalId, address } = req.body
-
+  const address = { street, buildingNumber, zipCode, city, country }
+  const subject = { name, lastName, personalId, address }
+  const user = req.session.currentUser._id
 
   VehicleAgreement
-    .create({ purchasePrice, vehicleInfo, subject, agreementDate })
-    .then(() => res.redirect('/personal/legal/vehicle-agreement/list'))
+    .create({ purchasePrice, vehicleInfo, subject, agreementDate, typeOfAgreement, user })
+    .then(() => { res.redirect('/personal/legal/vehicle-agreement/list') })
     .catch(err => console.log('An error has ocurred when creating a new agreement', err))
 })
 
 
-router.get('/list', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
+router.get('/list', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
 
   VehicleAgreement
     .find()
-    .then(agreements => res.render('selling-vehicle-agree/agree-list', { agreements }))
+    .then(agreements => {
+      res.render('vehicle-agree/agree-list', { agreements })
+    })
     .catch(err => console.log('An error has ocurred when listing all agrements', err))
+
 })
 
 
-router.get('/preview/:agreementID', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
+router.get('/preview/:agreementID', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
 
   const { agreementID } = req.params
 
@@ -41,14 +45,13 @@ router.get('/preview/:agreementID', checkLoggedUser, checkCompanyOrAdmin, (req, 
     .findById(agreementID)
     .populate('user')
     .then(agreement => {
-      res.render('selling-vehicle-agree/agree-preview', agreement)
-      console.log(agreement)
+      agreement.typeOfAgreement === 'selling' ? res.render('vehicle-agree/selling-agree-preview', agreement) : res.render('vehicle-agree/buying-agree-preview', agreement)
     })
     .catch(err => console.log('An error has ocurred when previewing agreement details', err))
 })
 
 
-router.get('/delete', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
+router.get('/delete', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
 
   const { agreement_ID } = req.query
 
@@ -59,7 +62,7 @@ router.get('/delete', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 })
 
 
-router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
+router.get('/edit', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
 
   const { agreement_ID } = req.query
 
@@ -73,13 +76,15 @@ router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 })
 
 
-router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
+router.post('/edit', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
 
   const { agreement_ID } = req.query
-  const { purchasePrice, agreementDate } = req.body
+  const { purchasePrice, agreementDate, street, buildingNumber,
+    zipCode, city, country, name, lastName, personalId, typeOfContract } = req.body
+
   const vehicleInfo = { year, status, model, plate, conditions } = req.body
-  const address = { street, buildingNumber, zipCode, city, country } = req.body
-  const subject = { name, lastName, personalId, address } = req.body
+  const address = { street, buildingNumber, zipCode, city, country }
+  const subject = { name, lastName, personalId, address }
 
   VehicleAgreement
     .findByIdAndUpdate(agreement_ID, { purchasePrice, vehicleInfo, subject, agreementDate })

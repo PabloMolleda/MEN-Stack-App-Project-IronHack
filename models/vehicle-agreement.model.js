@@ -39,7 +39,12 @@ const vehicleAgreementSchema = new Schema({
     }
   },
   agreementDate: { type: Date, required: true },
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  typeOfAgreement: {
+    type: String,
+    enum: ['selling', 'buying'],
+    required: true
+  }
 },
   { timestamps: true }
 )

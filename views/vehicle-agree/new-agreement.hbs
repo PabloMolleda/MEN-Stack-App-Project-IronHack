@@ -4,7 +4,7 @@
 
         <div class="col-md-6">
 
-            <h1>Create a new Vehicle Selling Agreement</h1>
+            <h1>Create a new Vehicle Agreement</h1>
 
             <hr>
 
@@ -12,7 +12,7 @@
 
                 <h4>Agreement Details</h4>
                 <div class="form-group">
-                    <label for="purchasePrice">Set a selling price</label>
+                    <label for="purchasePrice">Set a transaction price in USD</label>
                     <input type="text" class="form-control" name="purchasePrice" id="purchasePrice">
                 </div>
                 <h4>Car Details</h4>
@@ -42,7 +42,7 @@
                     <label for="conditions">Do you want to add special conditions to the agreement?</label>
                     <textarea class="form-control" name="conditions" id="conditions"></textarea>
                 </div>
-                <h4>Buyer Details</h4>
+                <h4>Subject Details</h4>
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" name="name" id="name">
@@ -82,6 +82,14 @@
                 <div class="form-group">
                     <label for="agreementDate">Especify agreement date</label>
                     <input type="date" class="form-control" name="agreementDate" id="agreementDate">
+                </div>
+                <h4> What kind of agreement do you want to generate? </h4>
+                <div class="form-group">
+                    <label for="typeOfAgreement"></label>
+                    <select name="typeOfAgreement" id="typeOfAgreement">
+                        <option value='selling'>I want to sell my vehicle!</option>
+                        <option value='buying'>I'm more likely to buy a vehicle!</option>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn btn-dark btn-block btn-lg">Add agreement data</button>
