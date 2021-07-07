@@ -37,30 +37,31 @@ router.get('/preview/:agreementID', (req, res) => {
   VehicleAgreement
     .findById(agreementID)
     .populate('user')
-    .then(agreement => res.render('selling-vehicle-agree/agree-preview', agreement))
+    .then(agreement => {
+      res.render('selling-vehicle-agree/agree-preview', agreement)
+      console.log(agreement)
+    })
     .catch(err => console.log('An error has ocurred when previewing agreement details', err))
 })
 
-router.get('/delete/:agreementID', (req, res) => res.render('selling-vehicle-agree/agree-list'))
+router.get('/delete', (req, res) => {
 
-router.post('/delete/:agreementID', (req, res) => {
-
-  const { agreementID } = req.params
+  const { agreement_ID } = req.query
 
   VehicleAgreement
-    .findByIdAndRemove(agreementID)
+    .findByIdAndRemove(agreement_ID)
     .then(() => res.redirect('/personal-services/legal/vehicle-agreement-selling/list'))
     .catch(err => console.log('An error has ocurred when deleting an agreement', err))
 })
 
-router.get('/edit/:agreementID', (req, res) => {
+router.get('/edit', (req, res) => {
 
-  const { agreementID } = req.params
+  const { agreement_ID } = req.query
 
-  console.log(req.params)
+  console.log(req.query)
 
   VehicleAgreement
-    .findById(agreementID)
+    .findById(agreement_ID)
     .then(agreement => res.render('selling-vehicle-agree/edit-agree', agreement))
     .catch(err => console.log('An error has ocurred when showing agreement details', err))
 
@@ -68,20 +69,20 @@ router.get('/edit/:agreementID', (req, res) => {
 
 
 
-router.post('/edit/:agreementID', (req, res) => {
+router.post('/edit', (req, res) => {
 
-  const { agreementID } = req.params
+  const { agreement_ID } = req.query
   const { purchasePrice, year, status, model, plate, conditions, name, lastName,
     personalId, street, buildingNumber, zipCode, city, country, agreementDate } = req.body
 
-    console.log(req.body, req.params)
+  console.log(req.body, req.query)
 
   const vehicleInfo = { year, status, model, plate, conditions }
   const address = { street, buildingNumber, zipCode, city, country }
   const subject = { name, lastName, personalId, address }
 
   VehicleAgreement
-    .findByIdAndUpdate(agreementID, { purchasePrice, vehicleInfo, subject, agreementDate })
+    .findByIdAndUpdate(agreement_ID, { purchasePrice, vehicleInfo, subject, agreementDate })
     .then(() => res.redirect('/personal-services/legal/vehicle-agreement-selling/list'))
     .catch(err => console.log('An has ocurred when editing an agreement', err))
 })
