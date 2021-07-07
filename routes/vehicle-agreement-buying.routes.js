@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const VehicleAgreement = require('./../models/vehicle-agreement.model')
+const VehicleAgreement = require('./../models/Vehicle-agreement.model')
 
 router.get('/', (req, res) => res.render('buying-vehicle-agree/index'))
 

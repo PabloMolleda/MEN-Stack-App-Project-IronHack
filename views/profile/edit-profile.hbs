@@ -1,0 +1,83 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Edit your credentials</h1>
+
+            <hr>
+
+            <form action="/my-profile/edit?user_id={{id}}" method="POST">
+
+                <div class="form-group">
+                    <label for="mail">Email</label>
+                    <input type="mail" class="form-control" name="mail" id="mail" value='{{mail}}'>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" value='{{password}}'>
+                </div>
+
+                <h4>Personal Info</h4>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" value='{{name}}'>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="lastName" value='{{lastName}}'>
+                </div>
+
+                <div class="form-group">
+                    <label for="personalId">National ID</label>
+                    <input type="text" class="form-control" name="personalId" id="personalId" value='{{personalId}}'>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" class="form-control" name="phone" id="phone" value='{{phone}}'>
+                </div>
+                <h4>Address</h4>
+                <div class="form-group">
+                    <label for="street">Street</label>
+                    <input type="text" class="form-control" name="street" id="street" value='{{street}}'>
+                </div>
+                <div class="form-group">
+                    <label for="buildingNumber">Building Number</label>
+                    <input type="text" class="form-control" name="buildingNumber" id="buildingNumber"
+                        value='{{buildingNumber}}'>
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" class="form-control" name="zipCode" id="zipCode" value='{{zipCode}}'>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" name="city" id="city" value='{{city}}'>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" name="country" id="country" value='{{country}}'>
+                </div>
+
+                <h4> Are you a company? </h4>
+
+                <div class="form-group">
+                    <label for="role"></label>
+                    <select name="role" id="role">
+                        <option value="company"> Yes </option>
+                        <option value="client"> No </option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Confirm changes</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

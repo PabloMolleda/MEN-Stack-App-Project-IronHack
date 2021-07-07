@@ -8,6 +8,6 @@ module.exports = app => {
   app.use('/company-services/hr/new-hire-agreement', require('./new-hire.routes.js'))
   app.use('/company-services/business/invoice', require('./invoice.routes.js'))
   app.use('/', require('./auth.routes.js'))
-  //   app.use('/user', require('./user.routes.js'))
+  app.use('/', require('./user.routes.js'))
 }
 

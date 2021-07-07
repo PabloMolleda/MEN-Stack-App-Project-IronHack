@@ -1,0 +1,54 @@
+<div class="container">
+    <h1>Welcome to your profile, {{name}}.</h1>
+    
+    <hr>
+
+    <div class="row justify-content-around">
+
+        <div class="col-md-4">
+            <h4>Main info:</h4>
+            <hr>
+            <p>Email: {{mail}}</p>
+            <p>Name: {{name}}</p>
+            <p>Last Name: {{lastName}}</p>
+            <p>Email: {{mail}}</p>
+            <p>ID: {{personalId}}</p>
+            <p>Phone: {{phone}}</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Your address:</h4>
+            <hr>
+            <p>Street: {{address.street}}</p>
+            <p>Building Info: {{address.buildingNumber}}</p>
+            <p>Zip Code: {{address.zipCode}}</p>
+            <p>City: {{address.city}}</p>
+            <p>Country: {{address.country}}</p>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Your account use is set as <strong>{{role}}.</strong> </h4>
+        </div>
+
+        {{!-- {{#if company}}
+        <div class="col-md-4">
+            <p>Email: {{company.mail}}</p>
+            <p>Name: {{company.name}}</p>
+            <p>Last Name: {{company.lastName}}</p>
+            <p>Email: {{company.mail}}</p>
+            <p>ID: {{company.companyId}}</p>
+            <p>Phone: {{company.phone}}</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Company address:</h4>
+            <hr>
+            <p>Street: {{company.address.street}}</p>
+            <p>Building Info: {{company.address.buildingNumber}}</p>
+            <p>Zip Code: {{company.address.zipCode}}</p>
+            <p>City: {{company.address.city}}</p>
+            <p>Countr
+        {{/if company}} --}}
+    </div>
+
+
+    <a href="/" class="btn btn-dark">Home</a>
+</div>

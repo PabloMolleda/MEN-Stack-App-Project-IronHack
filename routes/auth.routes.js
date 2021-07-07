@@ -11,7 +11,6 @@ router.post('/register', (req, res) => {
   const { mail, password, name, lastName, personalId, phone, street, buildingNumber, 
         zipCode, city, country, role } = req.body
 
-  console.log(req.body)
 
 const address = { street, buildingNumber, zipCode, city, country }
 
