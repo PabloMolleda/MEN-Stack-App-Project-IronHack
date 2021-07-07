@@ -1,39 +1,36 @@
-{{!-- <div class="container">
-
-    <h1>{{name}}</h1>
-
-    <hr>
-
-    <div class="row">
-        <div class="col-md-8">
-            <p><strong>Local:</strong> {{type}}</p>
-        </div>
-        <div class="col-md-8">
-            <p><strong>Location:</strong> {{location.coordinates}}</p>
-        </div>
-    </div>
-
-    <hr>
+<hr>
+<img src="" alt=""> {{!-- logo --}}
+<h2>JP & Co.</h2>
+<h2>VEHICLE BILL OF SALE</h2>
+<p>I,{{subject.name}} {{subject.lastName}},in consideration of $ {{purchasePrice}},do hereby sell, transfer and convey
+    to
+    {{user.name}} {{user.lastname}} ,the following vehicle:</p>
 
 
-    <div class="row">
-
-        <div class="col-md-3">
-
-            <form action="/places/details/{{id}}/delete" method="POST">
-
-                <button type="submit" class="btn btn-dark">Delete Place</button>
-
-            </form>
-
-        </div>
-
-    </div>
-
-    <hr>
-
-    <a href="/places/list" class="btn btn-dark">Back to places's list</a>
-
-</div>
-
-    --}}
+<h4>DESCRIPTION OF VEHICLE</h4>
+<h5>Year:</h5>
+<p>{{vehicleInfo.year}}</p>
+<h5>Status:</h5> {{!-- este nose si esta bien --}}
+<p>{{vehicleInfo.status.[0]}}</p>
+<h5>Model:</h5>
+<p>{{vehicleInfo.model}}</p>
+<h5>Plate:</h5>
+<p>{{vehicleInfo.plate}}</p>
+<h4>TERMS AND CONDITIONS (if applicable)</h4>
+<p>{{vehicleInfo.conditions}}</p>
+<h4>SELLER</h4>
+<h5>Name:</h5>
+<p>{{subject.name}} {{subject.lastName}}</p>
+<h5>Address:</h5>
+<p>{{subject.address.street}},{{subject.address.buildingNumber}},{{subject.address.zipCode}},{{subject.address.city}},{{subject.address.country}}
+</p>
+<h5>Date:</h5>
+<p>{{agreementDate}}</p>
+<h4>BUYER</h4>
+<h5>Name:</h5>
+<p>{{user.name}} {{user.lastName}}</p>
+<h5>Address:</h5>
+<p>{{user.address.street}},{{user.address.buildingNumber}},{{user.address.zipCode}},{{user.address.city}},{{user.address.country}}
+</p>
+<h5>Date:</h5>
+<p>{{agreementDate}}</p>
