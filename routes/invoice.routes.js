@@ -1,26 +1,32 @@
 const router = require("express").Router()
 const Invoice = require('./../models/Invoice.model')
+const { checkLoggedUser, checkCompanyOrAdmin } = require('./../middleware')
 
 
 router.get('/', (req, res) => res.render('invoice/index'))
-// new invoice
-router.get("/create", (req, res) => res.render("invoice/invoice-create"))
-router.post("/create", (req, res) => {
 
-    c
+
+router.get("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.render("invoice/invoice-create"))
+
+
+router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
+
+    const date = { invoiceDate, paymentDate, accrualDate } = req.body
+
+    const products = [{ productName, price, quantity, VAT }] = req.body
+
+    const address = { street, buildingNumber, zipCode, city, country } = req.body
+    const client = { name, lastName, email, address, phone } = req.body
+
     Invoice
         .create({ date, products, client })
-        // .populate('user')
-        .then(NewInvoice => {
-            res.redirect('/company-services/business/invoice/list')
-            console.log(NewInvoice)
-        })
+        .then(() => { res.redirect('/company-services/business/invoice/list') })
         .catch(err => console.log(err))
 
 })
 
-// invoices list
-router.get("/list", (req, res) => {
+
+router.get("/list", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
     Invoice
         .find()
@@ -29,9 +35,7 @@ router.get("/list", (req, res) => {
 })
 
 
-// delete invoice
-
-router.get('/delete', (req, res) => {
+router.get('/delete', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
     const { invoice_id } = req.query
 
@@ -42,8 +46,9 @@ router.get('/delete', (req, res) => {
         .catch(err => console.log(err))
 
 })
-// edit invoice
-router.get('/edit', (req, res) => {
+
+
+router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
     const { invoice_id } = req.query
 
@@ -52,87 +57,35 @@ router.get('/edit', (req, res) => {
         .then(theInvoice => res.render('invoice/invoice-edit', theInvoice))
         .catch(err => console.log(err))
 })
-router.post('/edit', (req, res) => {
-    const {
-        invoiceDate,
-        paymentDate,
-        accrualDate,
-        productName,
-        price,
-        quantity,
-        VAT,
-        name,
-        lastName,
-        email,
-        street,
-        buildingNumber,
-        zipCode,
-        city,
-        country,
-        phone
-    } = req.body
 
-    console.log(req.body)
 
-    const date = {
-        invoiceDate,
-        paymentDate,
-        accrualDate
+router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    }
+    const date = { invoiceDate, paymentDate, accrualDate } = req.body
 
-    const products = [{
-        productName,
-        price,
-        quantity,
-        VAT
-    }]
-    const address = {
-        street,
-        buildingNumber,
-        zipCode,
-        city,
-        country,
-    }
-    const client = {
-        name,
-        lastName,
-        email,
-        address,
-        phone
-    }
+    const products = [{ productName, price, quantity, VAT }] = req.body
 
+    const address = { street, buildingNumber, zipCode, city, country } = req.body
+    const client = { name, lastName, email, address, phone } = req.body
 
     const { invoice_id } = req.query
 
     Invoice
         .findByIdAndUpdate(invoice_id, { date, products, client })
-        .then(edition => {
-            res.redirect("/company-services/business/invoice/list")
-            console.log(edition)
-        })
+        .then(() => { res.redirect("/company-services/business/invoice/list") })
         .catch(err => console.log(err))
 })
-// see invoice details
 
-router.get("/preview/:invoice_id", (req, res) => {
+
+router.get('/preview/:invoice_id', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
     const { invoice_id } = req.params
-    console.log(req.params)
+
     Invoice
         .findById(invoice_id)
-        .then(invoice => {
-            res.render("invoice/invoice-preview", invoice)
-            console.log(invoice)
-        })
+        .then(() => { res.render("invoice/invoice-preview", invoice) })
         .catch(err => console.log(err))
 })
-
-
-
-
-
-
 
 
 module.exports = router

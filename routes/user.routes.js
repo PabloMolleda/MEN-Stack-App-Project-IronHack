@@ -1,9 +1,10 @@
 const router = require("express").Router()
-const bcrypt = require('bcrypt')
 const User = require('./../models/User.model')
+const { checkLoggedUser } = require('./../middleware')
 
-// 
-router.get('/my-profile', (req, res) => res.render('profile/index'))
+
+router.get('/my-profile', checkLoggedUser, (req, res) => res.render('profile/index'))
+
 
 router.get('/my-profile/edit', (req, res) => {
 
@@ -14,15 +15,12 @@ router.get('/my-profile/edit', (req, res) => {
         .then(user => res.render('profile/edit-profile', user))
         .catch(err => console.log(err))
 })
-router.post('/my-profile/edit', (req, res) => {
-
-    const { mail, name, lastName, personalId, phone, street, buildingNumber,
-        zipCode, city, country, role } = req.body
 
 
-    const address = { street, buildingNumber, zipCode, city, country }
+router.post('/my-profile/edit', checkLoggedUser, (req, res) => {
 
-
+    const { mail, name, lastName, personalId, phone, role } = req.body
+    const address = { street, buildingNumber, zipCode, city, country } = req.body
     const { user_id } = req.query
 
     User

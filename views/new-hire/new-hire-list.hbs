@@ -1,7 +1,17 @@
-<h1>New hire list</h1>
-{{#each newHires}}
-<div>{{employee.name}}</div>
-<a href="/services/hr/new-hire-agreement/preview/{{id}}">detalles</a>
-<a href="/services/hr/new-hire-agreement/delete?newHire_id={{id}}" class="btn btn-dark">Eliminar</a>
-<a href="/services/hr/new-hire-agreement/edit?newHire_id={{id}}" class="btn btn-dark">Editar</a>
-{{/each}}
+<div class="container">
+    <h1>Employment Agreements' list</h1>
+    <hr>
+    {{#each newHires}}
+    <p>- Document Ref.({{id}})</p>
+
+    <a href="/company/hr/employment-agreement/preview/{{id}}">
+        Preview
+    </a>
+    <a href="/company/hr/employment-agreement/delete?newHire_id={{id}}" class="btn btn-dark">
+        Delete
+    </a>
+    <a href="/company/hr/employment-agreement/edit?newHire_id={{id}}" class="btn btn-dark">
+        Edit
+    </a>
+    {{/each}}
+</div>

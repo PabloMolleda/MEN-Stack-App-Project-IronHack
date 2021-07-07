@@ -1,14 +1,12 @@
 module.exports = {
     checkLoggedUser: (req, res, next) => {
-        req.session.currentUser ? next() : res.render('pages/auth/login-page', { errorMessage: 'Inicia sesión para continuar' })
+        req.session.user ? next() : res.render('users/log-in', { errorMessage: 'Please, log in to continue' })
     },
-    checkRoles: (...rolesToCheck) => (req, res, next) => {
-        rolesToCheck.includes(req.session.currentUser.role) ? next() : res.render('pages/auth/login-page', { errorMessage: 'No dispones de privilegios suficientes' })
-    },
-    checkPMorOwner: (req, res, next) => {
-        const isPM = req.session.currentUser.role === 'PM'
-        const isOwner = req.session.currentUser._id === req.params.student_id
+    
+    checkCompanyOrAdmin: (req, res, next) => {
+        const isCompany = req.session.user.role === 'company'
+        const isAdmin = req.session.user._id === 'admin'
 
-        isPM || isOwner ? next() : res.render('pages/auth/login-page', { errorMessage: 'No dispones de privilegios suficientes' })
+        isCompany || isAdmin ? next() : res.render('users/log-in', { errorMessage: "Only available for company's accounts" })
     }
 }

@@ -1,7 +1,13 @@
-<h1>Invoice list</h1>
-{{#each invoices}}
-<div>{{client.name}}</div>
-<a href="/company-services/business/invoice/preview/{{id}}">detalles</a>
-<a href="/company-services/business/invoice/delete?invoice_id={{id}}" class="btn btn-dark">Eliminar</a>
-<a href="/company-services/business/invoice/edit?invoice_id={{id}}" class="btn btn-dark">Editar</a>
+<div class="invoices">
+
+    <h1>Invoices' list</h1>
+    <hr>
+
+    {{#each invoices}}
+    <p>- Document Ref.({{id}})</p>
+
+    <a href="/company/business/invoice/preview/{{id}}">Preview</a>
+<a href="/company/business/invoice/delete?invoice_id={{id}}" class="btn btn-dark">Delete</a>
+<a href="/company/business/invoice/edit?invoice_id={{id}}" class="btn btn-dark">Edit</a>
 {{/each}}
+</div>

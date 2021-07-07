@@ -8,11 +8,9 @@ router.get('/register', (req, res) => res.render('users/sign-up'))
 
 router.post('/register', (req, res) => {
 
-  const { mail, password, name, lastName, personalId, phone, street, buildingNumber, 
-        zipCode, city, country, role } = req.body
+  const { mail, password, name, lastName, personalId, phone, role } = req.body
 
-
-const address = { street, buildingNumber, zipCode, city, country }
+  const address = { street, buildingNumber, zipCode, city, country } = req.body
 
   User
     .findOne({ mail })
@@ -28,7 +26,7 @@ const address = { street, buildingNumber, zipCode, city, country }
       const hashPass = bcrypt.hashSync(password, salt)
 
       console.log(req.body)
-      
+
       User
         .create({ mail, password: hashPass, name, lastName, personalId, phone, address, role })
         .then(() => res.redirect('/'))
@@ -44,25 +42,25 @@ router.get('/log-in', (req, res) => res.render('users/log-in'))
 
 router.post('/log-in', (req, res) => {
 
-    const { username, password } = req.body
+  const { username, password } = req.body
 
-    User
-        .findOne({ username })
-        .then(user => {
+  User
+    .findOne({ username })
+    .then(user => {
 
-            if (!user) {
-                res.render('users/log-in', { errorMessage: 'Unknown User' })
-                return
-            }
+      if (!user) {
+        res.render('users/log-in', { errorMessage: 'Unknown User' })
+        return
+      }
 
-            if (bcrypt.compareSync(password, user.password) === false) {
-                res.render('users/log-in', { errorMessage: 'Wrong Password' })
-                return
-            }
-            req.session.currentUser = user
-            res.redirect('/')
-        })
-        .catch(err => console.log(err))
+      if (bcrypt.compareSync(password, user.password) === false) {
+        res.render('users/log-in', { errorMessage: 'Wrong Password' })
+        return
+      }
+      req.session.currentUser = user
+      res.redirect('/')
+    })
+    .catch(err => console.log(err))
 })
 
 // Log off

@@ -1,28 +1,30 @@
 const router = require("express").Router()
-const VehicleAgreement = require('./../models/Vehicle-agreement.model')
+const VehicleAgreement = require('../models/Vehicle-agreement.model')
+const { checkLoggedUser, checkCompanyOrAdmin } = require('../middleware')
 
 router.get('/', (req, res) => res.render('selling-vehicle-agree/index'))
 
-router.get('/create', (req, res) => res.render('selling-vehicle-agree/new-agreement'))
 
-router.post('/create', (req, res) => {
+router.get('/create', checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.render('selling-vehicle-agree/new-agreement'))
 
-  const { purchasePrice, year, status, model, plate, conditions, name, lastName,
-    personalId, street, buildingNumber, zipCode, city, country, agreementDate } = req.body
 
-  const vehicleInfo = { year, status, model, plate, conditions }
-  const address = { street, buildingNumber, zipCode, city, country }
-  const subject = { name, lastName, personalId, address }
+router.post('/create', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-  console.log(req.body)
+  const { purchasePrice, agreementDate } = req.body
+
+  const vehicleInfo = { year, status, model, plate, conditions } = req.body
+  const address = { street, buildingNumber, zipCode, city, country } = req.body
+  const subject = { name, lastName, personalId, address } = req.body
+
 
   VehicleAgreement
     .create({ purchasePrice, vehicleInfo, subject, agreementDate })
-    .then(() => res.redirect('/personal-services/legal/vehicle-agreement-selling/list'))
+    .then(() => res.redirect('/personal/legal/vehicle-agreement/list'))
     .catch(err => console.log('An error has ocurred when creating a new agreement', err))
 })
 
-router.get('/list', (req, res) => {
+
+router.get('/list', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
   VehicleAgreement
     .find()
@@ -30,7 +32,8 @@ router.get('/list', (req, res) => {
     .catch(err => console.log('An error has ocurred when listing all agrements', err))
 })
 
-router.get('/preview/:agreementID', (req, res) => {
+
+router.get('/preview/:agreementID', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
   const { agreementID } = req.params
 
@@ -44,17 +47,19 @@ router.get('/preview/:agreementID', (req, res) => {
     .catch(err => console.log('An error has ocurred when previewing agreement details', err))
 })
 
-router.get('/delete', (req, res) => {
+
+router.get('/delete', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
   const { agreement_ID } = req.query
 
   VehicleAgreement
     .findByIdAndRemove(agreement_ID)
-    .then(() => res.redirect('/personal-services/legal/vehicle-agreement-selling/list'))
+    .then(() => res.redirect('/personal/legal/vehicle-agreement/list'))
     .catch(err => console.log('An error has ocurred when deleting an agreement', err))
 })
 
-router.get('/edit', (req, res) => {
+
+router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
   const { agreement_ID } = req.query
 
@@ -68,23 +73,19 @@ router.get('/edit', (req, res) => {
 })
 
 
-
-router.post('/edit', (req, res) => {
+router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
   const { agreement_ID } = req.query
-  const { purchasePrice, year, status, model, plate, conditions, name, lastName,
-    personalId, street, buildingNumber, zipCode, city, country, agreementDate } = req.body
-
-  console.log(req.body, req.query)
-
-  const vehicleInfo = { year, status, model, plate, conditions }
-  const address = { street, buildingNumber, zipCode, city, country }
-  const subject = { name, lastName, personalId, address }
+  const { purchasePrice, agreementDate } = req.body
+  const vehicleInfo = { year, status, model, plate, conditions } = req.body
+  const address = { street, buildingNumber, zipCode, city, country } = req.body
+  const subject = { name, lastName, personalId, address } = req.body
 
   VehicleAgreement
     .findByIdAndUpdate(agreement_ID, { purchasePrice, vehicleInfo, subject, agreementDate })
-    .then(() => res.redirect('/personal-services/legal/vehicle-agreement-selling/list'))
+    .then(() => res.redirect('/personal/legal/vehicle-agreement/list'))
     .catch(err => console.log('An has ocurred when editing an agreement', err))
 })
+
 
 module.exports = router

@@ -1,86 +1,31 @@
 const router = require("express").Router()
 const Payroll = require('./../models/Payroll.model')
+const { checkLoggedUser, checkCompanyOrAdmin } = require('./../middleware')
 
 
 router.get('/', (req, res) => res.render('payroll/index'))
 
-// new payroll
-router.get("/create", (req, res) => res.render("payroll/payroll-create"))
 
-router.post("/create", (req, res) => {
+router.get("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.render("payroll/payroll-create"))
 
-    const {
-        name,
-        lastName,
-        street,
-        buildingNumber,
-        zipCode,
-        city,
-        country,
-        phone,
-        employeeId,
-        NIN,
-        profesionalTitle,
-        seniorityDate,
-        startDate,
-        endDate,
-        signDate,
-        weeklyHours,
-        hoursWage,
-        yearlyBonus,
-        NINpercentage,
-        TAX,
-        VAT
-    } = req.body
-    console.log(req.body)
-    const address = {
-        street,
-        buildingNumber,
-        zipCode,
-        city,
-        country
-    }
-    const employee = {
-        name,
-        lastName,
-        address,
-        phone,
-        employeeId,
-        NIN,
-        profesionalTitle
-    }
 
-    const payrollDates = {
-        startDate,
-        endDate,
-        signDate
-    }
-    const percentage = {
-        NINpercentage,
-        TAX,
-        VAT
-    }
-    const payrollDetails = {
-        seniorityDate,
-        payrollDates,
-        weeklyHours,
-        hoursWage,
-        yearlyBonus,
-        percentage
-    }
+router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
+
+    const address = { street, buildingNumber, zipCode, city, country } = req.body
+    const employee = { name, lastName, address, phone, employeeId, NIN, profesionalTitle } = req.body
+
+    const payrollDates = { startDate, endDate, signDate } = req.body
+    const percentage = { NINpercentage, TAX, VAT } = req.body
+    const payrollDetails = { seniorityDate, payrollDates, weeklyHours, hoursWage, yearlyBonus, percentage } = req.body
 
     Payroll
         .create({ employee, payrollDetails })
-        // .populate('user')
-        .then(newPayroll => {
-            res.redirect('/company-services/hr/payroll/list')
-            console.log(newPayroll)
-        })
+        .then(() => { res.redirect('/company/hr/payroll/list') })
         .catch(err => console.log(err))
 })
 
-// payrolls list
-router.get("/list", (req, res) => {
+
+router.get("/list", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
     Payroll
         .find()
@@ -88,20 +33,21 @@ router.get("/list", (req, res) => {
         .catch(err => console.log(err))
 })
 
-// delete payroll
-router.get('/delete', (req, res) => {
+
+router.get('/delete', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
     const { payroll_id } = req.query
 
     Payroll
 
         .findByIdAndRemove(payroll_id)
-        .then(() => res.redirect('/company-services/hr/payroll/list'))
+        .then(() => res.redirect('/company/hr/payroll/list'))
         .catch(err => console.log(err))
 
 })
-// edit payroll
-router.get('/edit', (req, res) => {
+
+
+router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
     const { payroll_id } = req.query
 
@@ -110,92 +56,36 @@ router.get('/edit', (req, res) => {
         .then(thepayroll => res.render('payroll/payroll-edit', thepayroll))
         .catch(err => console.log(err))
 })
-router.post('/edit', (req, res) => {
-    const {
-        name,
-        lastName,
-        street,
-        buildingNumber,
-        zipCode,
-        city,
-        country,
-        phone,
-        employeeId,
-        NIN,
-        profesionalTitle,
-        seniorityDate,
-        startDate,
-        endDate,
-        signDate,
-        weeklyHours,
-        hoursWage,
-        yearlyBonus,
-        NINpercentage,
-        TAX,
-        VAT
-    } = req.body
-    console.log(req.body)
-    const address = {
-        street,
-        buildingNumber,
-        zipCode,
-        city,
-        country
-    }
-    const employee = {
-        name,
-        lastName,
-        address,
-        phone,
-        employeeId,
-        NIN,
-        profesionalTitle
-    }
 
-    const payrollDates = {
-        startDate,
-        endDate,
-        signDate
-    }
-    const percentage = {
-        NINpercentage,
-        TAX,
-        VAT
-    }
-    const payrollDetails = {
-        seniorityDate,
-        payrollDates,
-        weeklyHours,
-        hoursWage,
-        yearlyBonus,
-        percentage
-    }
+
+router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
+
+    const address = { street, buildingNumber, zipCode, city, country } = req.body
+    const employee = { name, lastName, address, phone, employeeId, NIN, profesionalTitle } = req.body
+
+    const payrollDates = { startDate, endDate, signDate } = req.body
+    const percentage = { NINpercentage, TAX, VAT } = req.body
+    const payrollDetails = { seniorityDate, payrollDates, weeklyHours, hoursWage, yearlyBonus, percentage } = req.body
+
     const { payroll_id } = req.query
+
     Payroll
 
-
         .findByIdAndUpdate(payroll_id, { employee, payrollDetails })
-        .then(edition => {
-            res.redirect('/company-services/hr/payroll/list')
-            console.log(edition)
-        })
+        .then(() => { res.redirect('/company/hr/payroll/list') })
         .catch(err => console.log(err))
 })
 
-// see payroll details
-router.get("/preview/:payroll_id", (req, res) => {
+
+router.get("/preview/:payroll_id", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
     const { payroll_id } = req.params
 
     Payroll
         .findById(payroll_id)
-        .then(payroll => {
-            res.render("payroll/payroll-preview", payroll)
-            console.log(payroll)
-        })
+        .then(() => { res.render("payroll/payroll-preview", payroll) })
         .catch(err => console.log(err))
 })
 
-// edit payroll
 
 module.exports = router
