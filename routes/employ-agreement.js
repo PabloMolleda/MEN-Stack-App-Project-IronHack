@@ -17,7 +17,7 @@ router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
     const employee = { name, lastName, address, phone, personalId, NIN } = req.body
 
     const agreementDetails = {
-        startDate, endDate, weeklyHours, yearlyHours, yearlyBonus,
+        startDate, endDate, weeklyHours, yearlyBonus, yearlyHours, yearlyBonus,
         functions, trialPeriodDuration, location, signDate
     } = req.body
 
@@ -69,8 +69,9 @@ router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
     const employee = { name, lastName, address, phone, personalId, NIN } = req.body
 
     const agreementDetails = {
-        startDate, endDate, weeklyHours, yearlyHours, yearlyBonus, functions, 
-        trialPeriodDuration, location, signDate } = req.body
+        startDate, endDate, weeklyHours, yearlyBonus, yearlyHours, yearlyBonus, functions,
+        trialPeriodDuration, location, signDate
+    } = req.body
 
     const { newHire_id } = req.query
 
