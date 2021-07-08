@@ -11,18 +11,21 @@ router.get("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.re
 
 router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    const contract = { contractType, duration, positionTitle } = req.body
+    const { contractType, duration, positionTitle, street, buildingNumber, zipCode, city, country, name, lastName, phone, personalId, NIN, startDate, endDate, weeklyHours, yearlyHours, yearlyBonus, functions,
+        trialPeriodDuration, location, signDate } = req.body
 
-    const address = { street, buildingNumber, zipCode, city, country } = req.body
-    const employee = { name, lastName, address, phone, personalId, NIN } = req.body
+    const contract = { contractType, duration, positionTitle }
+
+    const address = { street, buildingNumber, zipCode, city, country }
+    const employee = { name, lastName, phone, personalId, address, NIN }
 
     const agreementDetails = {
-        startDate, endDate, weeklyHours, yearlyBonus, yearlyHours, yearlyBonus,
-        functions, trialPeriodDuration, location, signDate
-    } = req.body
-
+        startDate, endDate, weeklyHours, yearlyBonus, yearlyHours, functions,
+        trialPeriodDuration, location, signDate
+    }
+    const user = req.session.currentUser._id
     NewHire
-        .create({ contract, employee, agreementDetails })
+        .create({ contract, employee, agreementDetails, user })
         .then(() => { res.redirect('/company/hr/employment-agreement/list') })
         .catch(err => console.log(err))
 })
@@ -62,16 +65,18 @@ router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
 
 router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
+    const { contractType, duration, positionTitle, street, buildingNumber, zipCode, city, country, name, lastName, phone, personalId, NIN, startDate, endDate, weeklyHours, yearlyHours, yearlyBonus, functions,
+        trialPeriodDuration, location, signDate } = req.body
 
-    const contract = { contractType, duration, positionTitle } = req.body
+    const contract = { contractType, duration, positionTitle }
 
-    const address = { street, buildingNumber, zipCode, city, country } = req.body
-    const employee = { name, lastName, address, phone, personalId, NIN } = req.body
+    const address = { street, buildingNumber, zipCode, city, country }
+    const employee = { name, lastName, phone, personalId, address, NIN }
 
     const agreementDetails = {
         startDate, endDate, weeklyHours, yearlyBonus, yearlyHours, yearlyBonus, functions,
         trialPeriodDuration, location, signDate
-    } = req.body
+    }
 
     const { newHire_id } = req.query
 
@@ -88,6 +93,7 @@ router.get("/preview/:newHire_id", checkLoggedUser, checkCompanyOrAdmin, (req, r
 
     NewHire
         .findById(newHire_id)
+        .populate('user')
         .then(() => { res.render("new-hire/new-hire-preview") })
         .catch(err => console.log(err))
 })
