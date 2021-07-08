@@ -11,7 +11,7 @@ const companySchema = new Schema({
   },
   companyId: { type: String, required: true },            // que acabe con letra
   phone: { type: String, required: true },                // prefijo del pais
-  email: {
+  mail: {
     type: String,
     minLegth: 5,
     maxLength: 100,

@@ -1,0 +1,63 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Complete your company details</h1>
+
+            <hr>
+
+            <form action="/register/company-details" method="POST">
+
+                <h4>Company Info</h4>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="mail">Email</label>
+                    <input type="email" class="form-control" name="mail" id="mail">
+                </div>
+                <div class="form-group">
+                    <label for="companyId">Company ID</label>
+                    <input type="text" class="form-control" name="companyId" id="companyId">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" class="form-control" name="phone" id="phone">
+                </div>
+                <h4>Address</h4>
+                <div class="form-group">
+                    <label for="street">Street</label>
+                    <input type="text" class="form-control" name="street" id="street">
+                </div>
+                <div class="form-group">
+                    <label for="buildingNumber">Building Number</label>
+                    <input type="text" class="form-control" name="buildingNumber" id="buildingNumber">
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" class="form-control" name="zipCode" id="zipCode">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" name="city" id="city">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" name="country" id="country">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Complete</button>
+
+            </form>
+            {{#if errorMessage}}
+            <div class="errorMessage">
+                {{errorMessage}}</div>
+            {{/if}}
+        </div>
+
+    </div>
+
+</div>

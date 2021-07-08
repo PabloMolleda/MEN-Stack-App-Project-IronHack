@@ -66,8 +66,6 @@ router.get('/edit', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
 
   const { agreement_ID } = req.query
 
-  console.log(req.query)
-
   VehicleAgreement
     .findById(agreement_ID)
     .then(agreement => res.render('selling-vehicle-agree/edit-agree', agreement))
@@ -80,7 +78,7 @@ router.post('/edit', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
 
   const { agreement_ID } = req.query
   const { purchasePrice, agreementDate, street, buildingNumber,
-    zipCode, city, country, name, lastName, personalId, typeOfContract } = req.body
+    zipCode, city, country, name, lastName, personalId } = req.body
 
   const vehicleInfo = { year, status, model, plate, conditions } = req.body
   const address = { street, buildingNumber, zipCode, city, country }

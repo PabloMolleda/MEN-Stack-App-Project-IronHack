@@ -1,53 +1,64 @@
 <div class="container">
-    <h1>Welcome to your profile, {{name}}.</h1>
-    
+    <h1>Welcome to your profile, {{user.name}}.</h1>
+
     <hr>
 
-    <div class="row justify-content-around">
+    <div class="row">
 
-        <div class="col-md-4">
+        <div class="col-4">
             <h4>Main info:</h4>
             <hr>
-            <p>Email: {{mail}}</p>
-            <p>Name: {{name}}</p>
-            <p>Last Name: {{lastName}}</p>
-            <p>Email: {{mail}}</p>
-            <p>ID: {{personalId}}</p>
-            <p>Phone: {{phone}}</p>
+            <p>Email: {{user.mail}}</p>
+            <p>Name: {{user.name}}</p>
+            <p>Last Name: {{user.lastName}}</p>
+            <p>ID: {{user.personalId}}</p>
+            <p>Phone: {{user.phone}}</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-4">
             <h4>Your address:</h4>
             <hr>
-            <p>Street: {{address.street}}</p>
-            <p>Building Info: {{address.buildingNumber}}</p>
-            <p>Zip Code: {{address.zipCode}}</p>
-            <p>City: {{address.city}}</p>
-            <p>Country: {{address.country}}</p>
+            <p>Street: {{user.address.street}}</p>
+            <p>Building Info: {{user.address.buildingNumber}}</p>
+            <p>Zip Code: {{user.address.zipCode}}</p>
+            <p>City: {{user.address.city}}</p>
+            <p>Country: {{user.address.country}}</p>
         </div>
 
-        <div class="col-md-4">
-            <h4>Your account use is set as <strong>{{role}}.</strong> </h4>
+        <div class="col-4">
+            <h4>Your account use is set as <strong>{{user.role}}.</strong> </h4>
         </div>
+    </div>
+</div>
 
-        {{!-- {{#if company}}
-        <div class="col-md-4">
-            <p>Email: {{company.mail}}</p>
-            <p>Name: {{company.name}}</p>
-            <p>Last Name: {{company.lastName}}</p>
-            <p>Email: {{company.mail}}</p>
-            <p>ID: {{company.companyId}}</p>
-            <p>Phone: {{company.phone}}</p>
+{{#if ifCompany}}
+<div class="container">
+    <h4>Company details</h4>
+    <small>
+        <a href="/my-profile/company-edit?company_id={{user.company.id}}">Edit company details</a>
+    </small>
+    <hr>
+    <div class="row">
+        <div class="col-4">
+            <h4>Company info:</h4>
+            <hr>
+            <p>Email: {{user.company.mail}}</p>
+            <p>Name: {{user.company.name}}</p>
+            <p>Last Name: {{user.company.lastName}}</p>
+            <p>Email: {{user.company.mail}}</p>
+            <p>ID: {{user.company.companyId}}</p>
+            <p>Phone: {{user.company.phone}}</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-4">
             <h4>Company address:</h4>
             <hr>
-            <p>Street: {{company.address.street}}</p>
-            <p>Building Info: {{company.address.buildingNumber}}</p>
-            <p>Zip Code: {{company.address.zipCode}}</p>
-            <p>City: {{company.address.city}}</p>
-            <p>Countr
-        {{/if company}} --}}
+            <p>Street: {{user.company.address.street}}</p>
+            <p>Building Info: {{user.company.address.buildingNumber}}</p>
+            <p>Zip Code: {{user.company.address.zipCode}}</p>
+            <p>City: {{user.company.address.city}}</p>
+        </div>
     </div>
+
+    {{/if}}
 
 
     <a href="/" class="btn btn-dark">Home</a>
