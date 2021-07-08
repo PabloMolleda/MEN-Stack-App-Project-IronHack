@@ -1,14 +1,13 @@
-window.onload = () => {
-    document.getElementById('print-btn').onclick = () => {
+const pdfAPI = new APIHandler('http://localhost:8000');
 
-        generatePDF()
-    
-    }
 
-function generatePDF(element) {
-    const element = document.getElementById('makePDF')
+window.addEventListener('load', () => {
+  document.getElementById('print-btn').addEventListener('click', function () {
 
-    ht()
-        .from(element)
-        .save
-}
+    pdfAPI
+      .getPDF(document)
+      .then(response => console.log(response))
+      .catch(err => console.log(err))
+  })
+
+})

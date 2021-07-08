@@ -1,5 +1,6 @@
 const router = require("express").Router()
 const VehicleAgreement = require('./../models/Vehicle-agreement.model')
+const PDFDocument = require('pdfkit')
 const { checkLoggedUser, checkPersonalOrAdmin } = require('../middleware')
 
 router.get('/', (req, res) => res.render('vehicle-agree/index'))
@@ -47,6 +48,58 @@ router.get('/preview/:agreementID', checkLoggedUser, checkPersonalOrAdmin, (req,
       agreement.typeOfAgreement === 'selling' ? res.render('vehicle-agree/selling-agree-preview', agreement) : res.render('vehicle-agree/buying-agree-preview', agreement)
     })
     .catch(err => console.log('An error has ocurred when previewing agreement details', err))
+
+
+})
+
+router.get('/preview/print/:agreementID', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
+
+  const { agreementID } = req.params
+
+  VehicleAgreement
+    .findById(agreementID)
+    .populate('user')
+    .then(agreement => {
+
+      if (agreement.typeOfAgreement === 'selling') {
+
+        const filename = `Receipt_whatever.pdf`;
+        const doc = new PDFDocument({ bufferPages: true });
+        const stream = res.writeHead(200, {
+          'Content-Type': 'application/pdf',
+          'Content-disposition': `attachment;filename=${filename}.pdf`,
+        });
+        doc.on('data', (chunk) => stream.write(chunk));
+        doc.on('end', () => stream.end());
+
+        doc.font('Times-Roman')
+          .fontSize(12)
+          .text('METER LAS CONSTANTES');
+        doc.end()
+
+        
+
+      } else {
+
+        const filename = `Receipt_whatever.pdf`;
+        const doc = new PDFDocument({ bufferPages: true });
+        const stream = res.writeHead(200, {
+          'Content-Type': 'application/pdf',
+          'Content-disposition': `attachment;filename=${filename}.pdf`,
+        });
+        doc.on('data', (chunk) => stream.write(chunk));
+        doc.on('end', () => stream.end());
+
+        doc.font('Times-Roman')
+          .fontSize(12)
+          .text(sellingAgreement);
+        doc.end();
+
+      }
+    })
+    .catch(err => console.log('An error has ocurred when previewing agreement details', err))
+
+
 })
 
 
