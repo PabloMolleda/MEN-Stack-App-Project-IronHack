@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const VehicleAgreement = require('../models/Vehicle-agreement.model')
+const VehicleAgreement = require('./../models/Vehicle-agreement.model')
 const { checkLoggedUser, checkPersonalOrAdmin } = require('../middleware')
 
 router.get('/', (req, res) => res.render('vehicle-agree/index'))
