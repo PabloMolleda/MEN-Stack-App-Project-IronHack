@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/JP"
+const MONGO_URI = process.env.DB_REMOTE || "mongodb://localhost/JP"
 
 mongoose
   .connect(MONGO_URI, {

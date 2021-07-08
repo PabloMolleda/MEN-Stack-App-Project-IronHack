@@ -10,16 +10,16 @@ router.get("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.re
 
 
 router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
-    const { street, buildingNumber, zipCode, city, country, name, lastName, phone, employeeId, NIN, profesionalTitle, startDate, endDate, signDate, NINpercentage, TAX, VAT } = req.body
+    const { name, lastName, phone, employeeId, NIN, profesionalTitle } = req.body
 
-    const address = { street, buildingNumber, zipCode, city, country }
+    const address = { street, buildingNumber, zipCode, city, country } = req.body
     const employee = { name, lastName, address, phone, employeeId, NIN, profesionalTitle }
 
-    const payrollDates = { startDate, endDate, signDate }
-    const percentage = { NINpercentage, TAX, VAT }
+    const payrollDates = { startDate, endDate, signDate } = req.body
+    const percentage = { NINpercentage, TAX, VAT } = req.body
     const payrollDetails = { seniorityDate, weeklyHours, hoursWage, yearlyBonus, percentage, payrollDates }
+
     const user = req.session.currentUser._id
-    console.log(req.body)
 
     Payroll
         .create({ employee, payrollDetails, user })
@@ -63,13 +63,13 @@ router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
 router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    const { street, buildingNumber, zipCode, city, country, name, lastName, phone, employeeId, NIN, profesionalTitle, startDate, endDate, signDate, NINpercentage, TAX, VAT } = req.body
+    const { name, lastName, phone, employeeId, NIN, profesionalTitle } = req.body
 
-    const address = { street, buildingNumber, zipCode, city, country }
+    const address = { street, buildingNumber, zipCode, city, country } = req.body
     const employee = { name, lastName, address, phone, employeeId, NIN, profesionalTitle }
 
-    const payrollDates = { startDate, endDate, signDate }
-    const percentage = { NINpercentage, TAX, VAT }
+    const payrollDates = { startDate, endDate, signDate } = req.body
+    const percentage = { NINpercentage, TAX, VAT } = req.body
     const payrollDetails = { seniorityDate, weeklyHours, hoursWage, yearlyBonus, percentage, payrollDates }
 
     const { payroll_id } = req.query

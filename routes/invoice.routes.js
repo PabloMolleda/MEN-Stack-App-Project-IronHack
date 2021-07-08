@@ -11,13 +11,14 @@ router.get("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.re
 
 router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    const { invoiceDate, paymentDate, accrualDate, productName, price, quantity, VAT, street, buildingNumber, zipCode, city, country, name, lastName, email, phone } = req.body
-    const date = { invoiceDate, paymentDate, accrualDate }
+    const { name, lastName, email, phone } = req.body
 
-    const products = [{ productName, price, quantity, VAT }]
+    const date = { invoiceDate, paymentDate, accrualDate } = req.body
+    const products = [{ productName, price, quantity, VAT }] = req.body
 
-    const address = { street, buildingNumber, zipCode, city, country }
+    const address = { street, buildingNumber, zipCode, city, country } = req.body
     const client = { name, lastName, email, address, phone }
+
     const user = req.session.currentUser._id
 
     Invoice
@@ -42,7 +43,6 @@ router.get('/delete', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
     const { invoice_id } = req.query
 
     Invoice
-
         .findByIdAndRemove(invoice_id)
         .then(() => res.redirect("/company-services/business/invoice/list"))
         .catch(err => console.log(err))
@@ -64,12 +64,12 @@ router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
 
-    const { invoiceDate, paymentDate, accrualDate, productName, price, quantity, VAT, street, buildingNumber, zipCode, city, country, name, lastName, email, phone } = req.body
-    const date = { invoiceDate, paymentDate, accrualDate }
+    const { name, lastName, email, phone } = req.body
 
-    const products = [{ productName, price, quantity, VAT }]
+    const date = { invoiceDate, paymentDate, accrualDate } = req.body
+    const products = [{ productName, price, quantity, VAT }] = req.body
 
-    const address = { street, buildingNumber, zipCode, city, country }
+    const address = { street, buildingNumber, zipCode, city, country } = req.body
     const client = { name, lastName, email, address, phone }
     const { invoice_id } = req.query
 

@@ -25,8 +25,6 @@ router.post('/register', (req, res) => {
       const salt = bcrypt.genSaltSync(bcryptSalt)
       const hashPass = bcrypt.hashSync(pwd, salt)
 
-
-
       User
         .create({ mail, password: hashPass, name, lastName, personalId, phone, address, role })
         .then(user => {
@@ -35,13 +33,13 @@ router.post('/register', (req, res) => {
         })
         .catch(err => console.log(err, 'An error has ocurred when creating a new user'))
 
-
     })
     .catch(err => console.log(err, 'An error has ocurred when verifying if an user already exists'))
 })
 
 
 router.get('/register/company-details', checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.render('users/company-sign-up'))
+
 
 router.post('/register/company-details', checkCompanyOrAdmin, checkCompanyOrAdmin, (req, res) => {
 
