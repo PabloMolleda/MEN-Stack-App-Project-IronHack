@@ -23,37 +23,36 @@
                     <input name="accrualDate" type="date" class="form-control" id="accrualDate">
                 </div>
                 <h4>Product</h4>
-                <button>Add product</button>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="productName">Name</label>
-                            <input name="productName" type="text" class="form-control" id="productName">
+                <div class="add-product">
+                    <div class="row" id="add-product-row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="productName">Name</label>
+                                <input name="productName" type="text" class="form-control" id="productName">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input name="price" type="number" class="form-control" id="price">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input name="quantity" type="number" class="form-control" id="quantity">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="VAT">VAT</label>
+                                <input name="VAT" type="number" class="form-control" id="VAT">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="price">Price</label>
-                            <input name="price" type="number" class="form-control" id="price">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="quantity">Quantity</label>
-                            <input name="quantity" type="number" class="form-control" id="quantity">
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="VAT">VAT</label>
-                            <input name="VAT" type="number" class="form-control" id="VAT">
-                        </div>
-                    </div>
-
-
                 </div>
 
-
+                {{!-- <button id="add-btn" type="button">Add product</button> --}}
 
 
 
@@ -102,3 +101,5 @@
 
     </div>
 </div>
+{{!--
+<script src="/js/create-invoice-logic.js"></script> --}}

@@ -1,8 +1,19 @@
+
+//logic product 
 const price = document.getElementById('price').textContent
+console.log(price)
 const quantity = document.getElementById('quantity').textContent
 const VAT = document.getElementById('VAT').textContent
-console.log(price, quantity, VAT)
-//logica producto
-let subtotal = Invoice.products[0].price * Invoice.products[0].quantity
-let IVA = subtotal * Invoice.products[0].VAT
-let totalProduct = subtotal + IVA
+
+
+const subtotal = price * quantity
+document.querySelector('#subtotal').innerHTML = subtotal
+const IVA = subtotal * (VAT / 100)
+document.querySelector('#finalVAT').innerHTML = IVA
+const totalProduct = subtotal + IVA
+document.querySelector('#totalProduct').innerHTML = totalProduct
+
+
+
+//logic payroll
+

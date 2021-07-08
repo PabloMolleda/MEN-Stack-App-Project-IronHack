@@ -11,17 +11,19 @@ router.get("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.re
 
 router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    const { name, lastName, phone, personalId, NIN } = req.body
 
-    const contract = { contractType, duration, positionTitle } = req.body
+    const { name, lastName, phone, personalId, NIN, street, buildingNumber, zipCode, city, country, contractType, duration, positionTitle, startDate, endDate, weeklyHours, yearlyBonus, yearlyHours,
+        functions, trialPeriodDuration, location, signDate, salaryPerYear } = req.body
 
-    const address = { street, buildingNumber, zipCode, city, country } = req.body
+    const contract = { contractType, duration, positionTitle }
+
+    const address = { street, buildingNumber, zipCode, city, country }
     const employee = { name, lastName, phone, personalId, address, NIN }
 
     const agreementDetails = {
         startDate, endDate, weeklyHours, yearlyBonus, yearlyHours,
-        functions, trialPeriodDuration, location, signDate
-    } = req.body
+        functions, trialPeriodDuration, location, signDate, salaryPerYear
+    }
 
     const user = req.session.currentUser._id
 
@@ -65,17 +67,18 @@ router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
 
 router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
-    const { name, lastName, phone, personalId, NIN } = req.body
+    const { name, lastName, phone, personalId, NIN, street, buildingNumber, zipCode, city, country, contractType, duration, positionTitle, startDate, endDate, weeklyHours, yearlyBonus, yearlyHours,
+        functions, trialPeriodDuration, location, signDate, salaryPerYear } = req.body
 
-    const contract = { contractType, duration, positionTitle } = req.body
+    const contract = { contractType, duration, positionTitle }
 
-    const address = { street, buildingNumber, zipCode, city, country } = req.body
+    const address = { street, buildingNumber, zipCode, city, country }
     const employee = { name, lastName, phone, personalId, address, NIN }
 
     const agreementDetails = {
         startDate, endDate, weeklyHours, yearlyBonus, yearlyHours,
-        functions, trialPeriodDuration, location, signDate
-    } = req.body
+        functions, trialPeriodDuration, location, signDate, salaryPerYear
+    }
 
     const { newHire_id } = req.query
 

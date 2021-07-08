@@ -25,10 +25,23 @@
 <p>{{employee.employeeId}}</p>
 <h3>profesionalTitle</h3>
 <p>{{employee.profesionalTitle}}</p>
-{{!-- FALTAN LA TABLA DE LAS HORAS --}}
+
+<h3>Weekly Hours</h3>
+<p id="weeklyHours">{{payrollDetails.weeklyHours}}</p>
+<h3>hours Wage</h3>
+<p id="hoursWage">{{payrollDetails.hoursWage}}</p>
+<h3>yearlyBonus</h3>
+<p id="yearlyBonus">{{payrollDetails.yearlyBonus}}</p>
+<h3>total</h3>
+<p id="total"></p>
+<h3>total per Year</h3>
+<p id="totalPerYear"></p>
 <h3>NIN</h3>
 <p>{{payrollDetails.percentage.NINpercentage}}</p>
 <h3>TAX</h3>
 <p>{{payrollDetails.percentage.TAX}}</p>
 <h3>VAT</h3>
 <p>{{payrollDetails.percentage.VAT}}</p>
+
+
+<script src="/js/preview-payroll.js"></script>
