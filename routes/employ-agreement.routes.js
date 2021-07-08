@@ -11,19 +11,20 @@ router.get("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.re
 
 router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    const { contractType, duration, positionTitle, street, buildingNumber, zipCode, city, country, name, lastName, phone, personalId, NIN, startDate, endDate, weeklyHours, yearlyHours, yearlyBonus, functions,
-        trialPeriodDuration, location, signDate } = req.body
+    const { name, lastName, phone, personalId, NIN } = req.body
 
-    const contract = { contractType, duration, positionTitle }
+    const contract = { contractType, duration, positionTitle } = req.body
 
-    const address = { street, buildingNumber, zipCode, city, country }
+    const address = { street, buildingNumber, zipCode, city, country } = req.body
     const employee = { name, lastName, phone, personalId, address, NIN }
 
     const agreementDetails = {
-        startDate, endDate, weeklyHours, yearlyBonus, yearlyHours, functions,
-        trialPeriodDuration, location, signDate
-    }
+        startDate, endDate, weeklyHours, yearlyBonus, yearlyHours,
+        functions, trialPeriodDuration, location, signDate
+    } = req.body
+
     const user = req.session.currentUser._id
+
     NewHire
         .create({ contract, employee, agreementDetails, user })
         .then(() => { res.redirect('/company/hr/employment-agreement/list') })
@@ -45,7 +46,6 @@ router.get('/delete', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
     const { newHire_id } = req.query
 
     NewHire
-
         .findByIdAndRemove(newHire_id)
         .then(() => res.redirect('/company/hr/employment-agreement/list'))
         .catch(err => console.log(err))
@@ -65,18 +65,17 @@ router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
 
 router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
-    const { contractType, duration, positionTitle, street, buildingNumber, zipCode, city, country, name, lastName, phone, personalId, NIN, startDate, endDate, weeklyHours, yearlyHours, yearlyBonus, functions,
-        trialPeriodDuration, location, signDate } = req.body
+    const { name, lastName, phone, personalId, NIN } = req.body
 
-    const contract = { contractType, duration, positionTitle }
+    const contract = { contractType, duration, positionTitle } = req.body
 
-    const address = { street, buildingNumber, zipCode, city, country }
+    const address = { street, buildingNumber, zipCode, city, country } = req.body
     const employee = { name, lastName, phone, personalId, address, NIN }
 
     const agreementDetails = {
-        startDate, endDate, weeklyHours, yearlyBonus, yearlyHours, yearlyBonus, functions,
-        trialPeriodDuration, location, signDate
-    }
+        startDate, endDate, weeklyHours, yearlyBonus, yearlyHours,
+        functions, trialPeriodDuration, location, signDate
+    } = req.body
 
     const { newHire_id } = req.query
 

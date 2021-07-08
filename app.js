@@ -7,7 +7,7 @@ const app = express()
 require("./config")(app)
 require("./config/session.config")(app)
 
-app.locals.title = 'JP & Co. Simple business.'
+app.locals.title = 'JP & Co.'
 
 require("./routes")(app)
 

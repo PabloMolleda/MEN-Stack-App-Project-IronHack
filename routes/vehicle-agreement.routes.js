@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const VehicleAgreement = require('../models/Vehicle-agreement.model')
+const VehicleAgreement = require('./../models/Vehicle-agreement.model')
 const { checkLoggedUser, checkPersonalOrAdmin } = require('../middleware')
 
 router.get('/', (req, res) => res.render('vehicle-agree/index'))
@@ -10,11 +10,10 @@ router.get('/create', checkLoggedUser, checkPersonalOrAdmin, (req, res) => res.r
 
 router.post('/create', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
 
-  const { purchasePrice, agreementDate, street, buildingNumber,
-    zipCode, city, country, name, lastName, personalId, typeOfAgreement } = req.body
+  const { purchasePrice, agreementDate, name, lastName, personalId, typeOfAgreement } = req.body
 
   const vehicleInfo = { year, status, model, plate, conditions } = req.body
-  const address = { street, buildingNumber, zipCode, city, country }
+  const address = { street, buildingNumber, zipCode, city, country } = req.body
   const subject = { name, lastName, personalId, address }
   const user = req.session.currentUser._id
 
@@ -77,11 +76,10 @@ router.get('/edit', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
 router.post('/edit', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
 
   const { agreement_ID } = req.query
-  const { purchasePrice, agreementDate, street, buildingNumber,
-    zipCode, city, country, name, lastName, personalId } = req.body
+  const { purchasePrice, agreementDate, name, lastName, personalId } = req.body
 
   const vehicleInfo = { year, status, model, plate, conditions } = req.body
-  const address = { street, buildingNumber, zipCode, city, country }
+  const address = { street, buildingNumber, zipCode, city, country } = req.body
   const subject = { name, lastName, personalId, address }
 
   VehicleAgreement
