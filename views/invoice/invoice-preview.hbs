@@ -1,40 +1,45 @@
 <div id='print'>
-<h1>Invoice</h1>
-<h5>From:</h5>
-<p>{{user.company.name}}</p>
-<p>{{user.company.email}}</p>
-<p>{{user.company.address.street}},{{user.company.address.buildingNumber}},{{user.company.address.zipCode}},{{user.company.address.city}},{{user.company.address.country}}
-</p>
-<p>{{user.company.phone}}</p>
-<p>{{user.company.companyId}}</p>
-<h5>To:</h5>
-<p>{{client.name}} {{client.lastName}}</p>
-<p>{{client.email}}</p>
-<p>{{client.address.street}},{{client.address.buildingNumber}},{{client.address.zipCode}},{{client.address.city}},{{client.address.country}}
-</p>
-<p>{{client.phone}}</p>
-<p>{{date.paymentDate}}</p>
-<h3>DESCRIPTION</h3>
-<h3>RATE</h3>
-<h3>QUANTITY</h3>
-<h3>AMMOUNT</h3>
+    <div class="container">
 
-<p>{{products.ProductName}}</p>
-<p id='price'>{{products.[0].price}}</p>
-<p id='quantity'>{{products.[0].quantity}}</p>
-<p id='VAT'>{{products.[0].VAT}}</p>
+        <div class="row justify-content-center">
 
-<p>RESULTADO AMMOUNT</p>
+            <h1>Invoice</h1>
+            <h5>From:</h5>
+            <p>{{user.company.name}}</p>
+            <p>{{user.company.email}}</p>
+            <p>{{user.company.address.street}},{{user.company.address.buildingNumber}},{{user.company.address.zipCode}},{{user.company.address.city}},{{user.company.address.country}}
+            </p>
+            <p>{{user.company.phone}}</p>
+            <p>{{user.company.companyId}}</p>
+            <h5>To:</h5>
+            <p>{{client.name}} {{client.lastName}}</p>
+            <p>{{client.email}}</p>
+            <p>{{client.address.street}},{{client.address.buildingNumber}},{{client.address.zipCode}},{{client.address.city}},{{client.address.country}}
+            </p>
+            <p>{{client.phone}}</p>
+            <p>{{date.paymentDate}}</p>
+            <h3>DESCRIPTION</h3>
+            <h3>RATE</h3>
+            <h3>QUANTITY</h3>
+            <h3>AMMOUNT</h3>
 
-<p>Subtotal</p>
-<p id='subtotal'></p>
-<p>VAT</p>
-<p id='finalVAT'></p>
-<p>Total</p>
-<<<<<<< HEAD
+            <p>{{products.ProductName}}</p>
+            <p id='price'>{{products.[0].price}}</p>
+            <p id='quantity'>{{products.[0].quantity}}</p>
+            <p id='VAT'>{{products.[0].VAT}}</p>
+
+            <p>RESULTADO AMMOUNT</p>
+
+            <p>Subtotal</p>
+            <p id='subtotal'></p>
+            <p>VAT</p>
+            <p id='finalVAT'></p>
+            <p>Total</p>
+            <p id="totalProduct"></p>
+
+        </div>
+
+    </div>
 </div>
-=======
-<p id="totalProduct"></p>
->>>>>>> 8753d7cdf70a37ba579ff0c67bea342c977fae92
 
 <script src="/js/logic.js"></script>

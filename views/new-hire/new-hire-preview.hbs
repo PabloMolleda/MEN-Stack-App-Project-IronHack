@@ -1,192 +1,229 @@
-<h4><strong>CONTRATO DE TRABAJO INDEFINIDO</strong></h4>
-<p>En{{company.address.city}},{{agreementDetails.signDate}}</p>
-<h4><strong>REUNIDOS</strong></h4>
-<h5><strong>Datos personales y de la empresa del contrato:</strong></h5>
-<h5><strong>De una parte,</strong></h5>
-<h5><strong>- Datos de la Empresa</strong></h5>
-<h6>CIF/NIF/NIE: {{company.companyId}}</h6>
-<h6>NOMBRE O RAZÓN SOCIAL de la empresa :{{company.name}}</h6>
-<h6>Domicilio
-    Social:{{company.address.street}},{{company.address.buildingNumber}}
-</h6>
-<h6>País:{{company.address.country}}</h6>
-<h6>Municipio: {{company.address.city}}</h6>
-<h6>C. Postal:{{company.address.zipCode}}</h6>
+<div class="container">
 
-<h5><strong>- En adelante, la "EMPLEADORA".</strong></h5>
-<h5><strong>De otra parte,</strong></h5>
-<h5><strong>- Datos del/de la trabajador/a D./DÑa.</strong></h5>
-<h6>D./DÑA.:{{employee.name}} {{employee.lastName}}</h6>
-<h6>NIF./NIE: {{employee.personalId}}</h6>
-<h6>Número de afiliaciónS.S.:{{employee.NIN}}</h6>
-<h6>País domicilio:{{address.country}} </h6>
-<h6>Municipio del domicilio: {{address.city}}</h6>
+    <div class="row justify-content-center">
 
+        <h4><strong>CONTRATO DE TRABAJO INDEFINIDO</strong></h4>
+        <p>En{{company.address.city}},{{agreementDetails.signDate}}</p>
+        <h4><strong>REUNIDOS</strong></h4>
+        <h5><strong>Datos personales y de la empresa del contrato:</strong></h5>
+        <h5><strong>De una parte,</strong></h5>
+        <h5><strong>- Datos de la Empresa</strong></h5>
+        <h6>CIF/NIF/NIE: {{company.companyId}}</h6>
+        <h6>NOMBRE O RAZÓN SOCIAL de la empresa :{{company.name}}</h6>
+        <h6>Domicilio
+            Social:{{company.address.street}},{{company.address.buildingNumber}}
+        </h6>
+        <h6>País:{{company.address.country}}</h6>
+        <h6>Municipio: {{company.address.city}}</h6>
+        <h6>C. Postal:{{company.address.zipCode}}</h6>
 
+        <h5><strong>- En adelante, la "EMPLEADORA".</strong></h5>
+        <h5><strong>De otra parte,</strong></h5>
+        <h5><strong>- Datos del/de la trabajador/a D./DÑa.</strong></h5>
+        <h6>D./DÑA.:{{employee.name}} {{employee.lastName}}</h6>
+        <h6>NIF./NIE: {{employee.personalId}}</h6>
+        <h6>Número de afiliaciónS.S.:{{employee.NIN}}</h6>
+        <h6>País domicilio:{{address.country}} </h6>
+        <h6>Municipio del domicilio: {{address.city}}</h6>
 
+        <hr>
 
+        <p>En adelante, el <strong>"TRABAJADOR"</strong>.</p>
+        <p>La EMPLEADORA y el TRABAJADOR que, en adelante, podrán ser denominados, individualmente, "la Parte" y
+            conjuntamente,
+            "las Partes", reconociéndose mutuamentecapacidad legal
+            suficiente para contratar y obligarse en la representación que actúan ysiendo responsables de la veracidad
+            de sus
+            manifestaciones,</p>
+        <h4><strong>EXPONEN</strong></h4>
+        <p><strong>I.</strong> Que reúnen los requisitos exigidos por la LEY para la celebración del siguiente contrato.
+            <strong>II.</strong> Que habiendo llegado las Partes, libre y espontáneamente, a una coincidencia mutua de
+            sus
+            voluntades, formalizan
+            el
+            presente<strong>CONTRATO
+                DE TRABAJO INDEFINIDO</strong>, en adelante el "Contrato" o el "Contrato de trabajo", que tiene por
+            objeto el
+            establecimiento
+            de
+            una relación laboral entre las Partes, así como de sus términos ycondiciones, y que se regirá por las
+            siguientes,
+            <strong>III.</strong> La duración del presente contrato será INDEFINIDA.
+        </p>
+        <h4><strong>ESTIPULACIONES</strong></h4>
+        <p><strong>PRIMERA.- Objeto. Puesto de trabajo a realizar</strong></p>
+        <p>El TRABAJADOR prestará sus servicios como:{{agreementDetails.functions}}, incluido en el grupo profesionales:
+            De acuerdo con el sistema de clasificación profesional vigente en la empresa.</p>
 
+        <h4><strong>SEGUNDA.- Lugar de desarrollo del trabajo</strong></h4>
+        <p>El TRABAJADOR prestará sus servicios en el centro de trabajo ubicado
+            en:{{company.address.street}},{{company.address.buildingNumber}},{{company.address.zipCode}},{{company.address.city}}.{{company.address.country}}
+        </p>
+        <p>Según la LEY, La EMPLEADORA tiene el derecho de modificar el lugar del trabajo delTRABAJADOR,
+            siempre que esta circunstancia se haga respetando los preavisos y lasformas legalmente establecidos.</p>
+        <p>Se puede dar un
+            cambio de lugar de trabajo incluso si este exige un cambio de residencia, siempre que se encuentre
+            justificado por
+            razones económicas, técnicas, organizativas o de producción. En este caso, el TRABAJADOR contará con los
+            derechos
+            reconocidos por el artículo 40 del Estatuto de los Trabajadores.</p>
+        <h4><strong>TERCERA.- Jornada de trabajo a realizar por el TRABAJADOR</strong></h4>
+        <p>La jornada de trabajo será de {{agreementDetails.weeklyHours}} horas
+            semanales.</p>
 
-<br><br><br><br><br><br>
+        <p><strong>CUARTA.- Duración del Contrato</strong></p>
 
+        <p>La duración del presente Contrato será indefinida, iniciándose la relación laboral en
+            fecha: {{agreementDetails.startDate}} . Y se establece un periodo de prueba de:
+            {{agreementDetails.trialPeriodDuration}} días. (Respetando lo establecido en el art.14.1
+            del
+            Texto Refundido de la Ley del Estatuto de los Trabajadores, aprobado por Real Decreto Legislativo 2/2015 de
+            23 de
+            octubre (BOE de 24de octubre).</p>
 
+        <p>Durante este período de prueba ambas partes pueden instar por propia iniciativa la
+            resolución de este Contrato sin necesidad de alegar motivo o causa alguna, y sin que se deba una
+            indemnización por
+            ello.</p>
 
-<p>En adelante, el <strong>"TRABAJADOR"</strong>.</p>
-<p>La EMPLEADORA y el TRABAJADOR que, en adelante, podrán ser denominados, individualmente, "la Parte" y conjuntamente,
-    "las Partes", reconociéndose mutuamentecapacidad legal
-    suficiente para contratar y obligarse en la representación que actúan ysiendo responsables de la veracidad de sus
-    manifestaciones,</p>
-<h4><strong>EXPONEN</strong></h4>
-<p><strong>I.</strong> Que reúnen los requisitos exigidos por la LEY para la celebración del siguiente contrato.
-    <strong>II.</strong> Que habiendo llegado las Partes, libre y espontáneamente, a una coincidencia mutua de sus
-    voluntades, formalizan
-    el
-    presente<strong>CONTRATO
-        DE TRABAJO INDEFINIDO</strong>, en adelante el "Contrato" o el "Contrato de trabajo", que tiene por objeto el
-    establecimiento
-    de
-    una relación laboral entre las Partes, así como de sus términos ycondiciones, y que se regirá por las siguientes,
-    <strong>III.</strong> La duración del presente contrato será INDEFINIDA.
-</p>
-<h4><strong>ESTIPULACIONES</strong></h4>
-<p><strong>PRIMERA.- Objeto. Puesto de trabajo a realizar</strong></p>
-<p>El TRABAJADOR prestará sus servicios como:{{agreementDetails.functions}}, incluido en el grupo profesionales:
-    De acuerdo con el sistema de clasificación profesional vigente en la empresa.</p>
+        <p>Para poder poner fin al periodo de prueba antes de lo previsto la parte interesada deberá notificárselo a la
+            otra
+            con, como mínimo, un preaviso de siete días naturales a la fecha en la que el desistimiento será efectivo.
+            Esto no
+            anula
+            la liquidación al TRABAJADOR de los días efectivamente trabajados así como de la parte
+            proporcionalcorrespondiente a
+            vacaciones por el período trabajado y al concepto de paga extra salarial.</p>
+        <p>El periodo de prueba computa en la antigüedad del TRABAJADOR en la empresa si sigue luego la relación
+            laboral.</p>
 
-<h4><strong>SEGUNDA.- Lugar de desarrollo del trabajo</strong></h4>
-<p>El TRABAJADOR prestará sus servicios en el centro de trabajo ubicado
-    en:{{company.address.street}},{{company.address.buildingNumber}},{{company.address.zipCode}},{{company.address.city}}.{{company.address.country}}
-</p>
-<p>Según la LEY, La EMPLEADORA tiene el derecho de modificar el lugar del trabajo delTRABAJADOR,
-    siempre que esta circunstancia se haga respetando los preavisos y lasformas legalmente establecidos.</p>
-<p>Se puede dar un
-    cambio de lugar de trabajo incluso si este exige un cambio de residencia, siempre que se encuentre justificado por
-    razones económicas, técnicas, organizativas o de producción. En este caso, el TRABAJADOR contará con los derechos
-    reconocidos por el artículo 40 del Estatuto de los Trabajadores.</p>
-<h4><strong>TERCERA.- Jornada de trabajo a realizar por el TRABAJADOR</strong></h4>
-<p>La jornada de trabajo será de {{agreementDetails.weeklyHours}} horas
-    semanales.</p>
+        <p>En caso, de una vez finalizado el periodo de prueba, el
+            TRABAJADOR podrá realizar un preaviso de cese voluntario en su puesto de trabajo 15 días mediante
+            notificación
+            fehaciente y con documento acreditativo. Si no se cumple este periodo de preaviso acordado, el TRABAJADOR
+            estará
+            obligado a compensar a la EMPLEADORA con una cuantía equivalente a los salarios correspondientes a la
+            duración del
+            período incumplido.</p>
 
-<p><strong>CUARTA.- Duración del Contrato</strong></p>
+        <p><strong>QUINTA.- Retribución del TRABAJADOR</strong></p>
+        <p>El TRABAJADOR percibirá una retribución total de SALARIO BASE + PLUSES. <span id="total"></span>{{!--
+            CALCULAR CON
+            JAVASCRIPT --}}
+            brutos,
+            que
+            se distribuirán en los siguientes conceptos salariales:</p>
+        <p>Salario base: <span id="salaryPerYear">{{ agreementDetails.salaryPerYear}}</span> €, pluses:
+            <span id="yearlyBonus">{{agreementDetails.yearlyBonus}}</span> €.
+        </p>
+        <p>Se le entregará al TRABAJADOR un documento que justifique el pago de su salario por parte de
+            la EMPLEADORA cada vez que se realice. El pago se procederá por el medio habitual de la empresa y que
+            siempre quede
+            justificado con un recibo bancario a la cuenta que haya aportado el TRABAJADOR.
+        </p>
+        <p>El pago del salario se realizará
+            mensualmente por meses vencidos, el siguiente día: 28.</p>
+        <p><strong>SEXTA.- Vacaciones anuales</strong></p>
+        <p>El periodo de vacaciones se debe dar a conocer como mínimo con dos meses de antelación, y estas deben
+            desarrollarse
+            dentro del año al
+            que correspondan.</p>
+        <p>Las vacaciones no se pueden acumular de un año para otro, salvo que la fecha prevista de disfrute
+            coincida en el tiempo con una incapacidad temporal.</p>
+        <p><strong>SÉPTIMA.- Revisiones médicas Periódicas o Puntuales</strong></p>
+        <p>La EMPLEADORA podrá solicitar que el TRABAJADOR se someta en cualquier momento a cuantas revisiones médicas
+            estime
+            oportunas, así como proceder a la comprobación de las situaciones
+            de baja que lo afecten, ya sea a través de los servicios médicos de la empresa, Mutua patronal o servicio
+            concertado,
+            estando autorizada para recibir información del resultado de las mismas, no en cuanto al diagnóstico sino en
+            cuanto
+            a si
+            es apto o no para el trabajo o a si la situación de incapacidad temporal en la que se encuentra es
+            procedente o no.
+        </p>
+        <p>En relación con el artículo 22 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales, el
+            TRABAJADOR
+            presta su consentimiento para que se vigile su estado de salud en función de los riesgos inherentes al
+            trabajo.</p>
+        <p><strong>OCTAVA.-Protección de datos</strong></p>
+        <p>Los datos consignados en el presente modelo tendrán la protección derivada del Reglamento (UE)
+            2016/679 del Parlamento Europeo, de 27 de abril de 2016 y de la Ley Orgánica 3/2018, de 5 de diciembre (BOE
+            de 6
+            diciembre).
+        </p>
+        <p>Ambas partes son conscientes de que mediante la firma de este Contrato, y su comunicación al Servicio Público
+            de Empleo Estatal, consienten que sus datos personales recogidos en el presente Contrato, así como aquellos
+            que se
+            pudiesen recoger en el futuro para poder dar cumplimiento o una correcta ejecución de este mismo, podrían
+            ser
+            incorporados por la otra Parte, o por el Servicio Público de Empleo, a su propio fichero automatizado o no
+            de
+            recogida
+            de datos con el fin de ejecutar correctamente la relación contractual y, eventualmente, para una gestión
+            administrativa
+            y/o comercial.</p>
+        <p>El TRABAJADOR podrá solicitar de los Servicios Públicos de Empleo información del contenido de los
+            contratos y los datos en los que sean parte.</p>
+        <p>Ambas Partes se comprometen a que estos datos personales no serán
+            comunicados más allá del supuesto contemplado en la cláusula anterior.</p>
+        <p>De esta cláusula no resulta ninguna limitación o
+            restricción para las Partes en cuanto al ejercicio de los derechos de acceso, rectificación, supresión,
+            limitación
+            del
+            tratamiento, portabilidad u oposición con los que pudieran contar.</p>
+        <p>El TRABAJADOR se compromete a informar por escrito al EMPLEADOR cualquiercambio de dirección teniéndose como
+            suya,
+            para
+            todos los efectos, la última dirección registrada en
+            la empresa.</p>
+        <p><strong>NOVENA.- Comunicación del Contrato</strong></p>
+        <p>El contenido del presente Contrato se comunicará al Servicio Público de
+            Empleo Estatal en el plazo de los 10 días siguientes a la fecha de su concertación, que figura en el
+            encabezamiento.
+        </p>
+        <p><strong>DÉCIMA.- Obligaciones del TRABAJADOR y EMPLEADOR.</strong></p>
+        <p>En lo que respecta a las obligaciones, derechos y prohibiciones no
+            recogidas en este contrato, se regirán por el Estatuto de los Trabajadores, aprobado por el Real Decreto
+            Legislativo
+            2/2015, de 23 de octubre.</p>
+        <p>Ambas partes pueden acordar cláusulas
+            adicionales en el presente contrato y elaborarse en una hoja anexa a este documento, la cual hará parte del
+            mismo y
+            dondedeberán consignarse los nombres y firmas de las partes contratantes, su documento de identidad y fecha
+            en que
+            se
+            efectúe Modificación.
+            Estás cláusulas no podrán ir contra la LEY ni ser menos beneficiosas para el TRABAJADOR de lo que
+            ya dispone la LEY.</p>
+        <p><strong>UNDÉCIMA.- Acciones legales. Legislación aplicable. Jurisdicción</strong></p>
+        <p>Las Partes reconocen quedar obligadas
+            por el presente Contrato, ratifican todas y cada una de las cláusulas de este contrato, así como sus
+            correspondientes
+            anexos, si los hubiere, y sus efectos jurídicos y se comprometen a su cumplimiento de buena fe.</p>
+        <p>Todo litigio relativo,
+            especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o
+            terminación de
+            este
+            Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española
+            vigente
+            que
+            resulte de aplicación. Particularmente, se regirá por el Estatuto de los Trabajadores, aprobado por el Real
+            Decreto
+            Legislativo 2/2015, de 23 de octubre.</p>
+        <p>En caso de controversia,
+            diferencia, conflicto o reclamación en cuanto al Contrato, o en relación al mismo, las Partes acuerdan que
+            se
+            someterán
+            a la jurisdicción social de los Juzgados y Tribunales competentes conforme a derecho.
+        </p>
+        <p>Y en prueba de conformidad y
+            aceptación de todo lo establecido, ambas Partes firman todas las hojas de este Contrato en tres ejemplares y
+            a un
+            solo
+            efecto, en el lugar y fecha señalados en el encabezamiento</p>
 
-<p>La duración del presente Contrato será indefinida, iniciándose la relación laboral en
-    fecha: {{agreementDetails.startDate}} . Y se establece un periodo de prueba de:
-    {{agreementDetails.trialPeriodDuration}} días. (Respetando lo establecido en el art.14.1
-    del
-    Texto Refundido de la Ley del Estatuto de los Trabajadores, aprobado por Real Decreto Legislativo 2/2015 de 23 de
-    octubre (BOE de 24de octubre).</p>
-
-<p>Durante este período de prueba ambas partes pueden instar por propia iniciativa la
-    resolución de este Contrato sin necesidad de alegar motivo o causa alguna, y sin que se deba una indemnización por
-    ello.</p>
-
-<p>Para poder poner fin al periodo de prueba antes de lo previsto la parte interesada deberá notificárselo a la otra
-    con, como mínimo, un preaviso de siete días naturales a la fecha en la que el desistimiento será efectivo. Esto no
-    anula
-    la liquidación al TRABAJADOR de los días efectivamente trabajados así como de la parte proporcionalcorrespondiente a
-    vacaciones por el período trabajado y al concepto de paga extra salarial.</p>
-<p>El periodo de prueba computa en la antigüedad del TRABAJADOR en la empresa si sigue luego la relación laboral.</p>
-
-<p>En caso, de una vez finalizado el periodo de prueba, el
-    TRABAJADOR podrá realizar un preaviso de cese voluntario en su puesto de trabajo 15 días mediante
-    notificación
-    fehaciente y con documento acreditativo. Si no se cumple este periodo de preaviso acordado, el TRABAJADOR estará
-    obligado a compensar a la EMPLEADORA con una cuantía equivalente a los salarios correspondientes a la duración del
-    período incumplido.</p>
-
-<p><strong>QUINTA.- Retribución del TRABAJADOR</strong></p>
-<p>El TRABAJADOR percibirá una retribución total de SALARIO BASE + PLUSES. <span id="total"></span>{{!-- CALCULAR CON
-    JAVASCRIPT --}}
-    brutos,
-    que
-    se distribuirán en los siguientes conceptos salariales:</p>
-<p>Salario base: <span id="salaryPerYear">{{ agreementDetails.salaryPerYear}}</span> €, pluses:
-    <span id="yearlyBonus">{{agreementDetails.yearlyBonus}}</span> €.
-</p>
-<p>Se le entregará al TRABAJADOR un documento que justifique el pago de su salario por parte de
-    la EMPLEADORA cada vez que se realice. El pago se procederá por el medio habitual de la empresa y que siempre quede
-    justificado con un recibo bancario a la cuenta que haya aportado el TRABAJADOR.
-</p>
-<p>El pago del salario se realizará
-    mensualmente por meses vencidos, el siguiente día: 28.</p>
-<p><strong>SEXTA.- Vacaciones anuales</strong></p>
-<p>El periodo de vacaciones se debe dar a conocer como mínimo con dos meses de antelación, y estas deben desarrollarse
-    dentro del año al
-    que correspondan.</p>
-<p>Las vacaciones no se pueden acumular de un año para otro, salvo que la fecha prevista de disfrute
-    coincida en el tiempo con una incapacidad temporal.</p>
-<p><strong>SÉPTIMA.- Revisiones médicas Periódicas o Puntuales</strong></p>
-<p>La EMPLEADORA podrá solicitar que el TRABAJADOR se someta en cualquier momento a cuantas revisiones médicas estime
-    oportunas, así como proceder a la comprobación de las situaciones
-    de baja que lo afecten, ya sea a través de los servicios médicos de la empresa, Mutua patronal o servicio
-    concertado,
-    estando autorizada para recibir información del resultado de las mismas, no en cuanto al diagnóstico sino en cuanto
-    a si
-    es apto o no para el trabajo o a si la situación de incapacidad temporal en la que se encuentra es procedente o no.
-</p>
-<p>En relación con el artículo 22 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales, el
-    TRABAJADOR
-    presta su consentimiento para que se vigile su estado de salud en función de los riesgos inherentes al trabajo.</p>
-<p><strong>OCTAVA.-Protección de datos</strong></p>
-<p>Los datos consignados en el presente modelo tendrán la protección derivada del Reglamento (UE)
-    2016/679 del Parlamento Europeo, de 27 de abril de 2016 y de la Ley Orgánica 3/2018, de 5 de diciembre (BOE de 6
-    diciembre).
-</p>
-<p>Ambas partes son conscientes de que mediante la firma de este Contrato, y su comunicación al Servicio Público
-    de Empleo Estatal, consienten que sus datos personales recogidos en el presente Contrato, así como aquellos que se
-    pudiesen recoger en el futuro para poder dar cumplimiento o una correcta ejecución de este mismo, podrían ser
-    incorporados por la otra Parte, o por el Servicio Público de Empleo, a su propio fichero automatizado o no de
-    recogida
-    de datos con el fin de ejecutar correctamente la relación contractual y, eventualmente, para una gestión
-    administrativa
-    y/o comercial.</p>
-<p>El TRABAJADOR podrá solicitar de los Servicios Públicos de Empleo información del contenido de los
-    contratos y los datos en los que sean parte.</p>
-<p>Ambas Partes se comprometen a que estos datos personales no serán
-    comunicados más allá del supuesto contemplado en la cláusula anterior.</p>
-<p>De esta cláusula no resulta ninguna limitación o
-    restricción para las Partes en cuanto al ejercicio de los derechos de acceso, rectificación, supresión, limitación
-    del
-    tratamiento, portabilidad u oposición con los que pudieran contar.</p>
-<p>El TRABAJADOR se compromete a informar por escrito al EMPLEADOR cualquiercambio de dirección teniéndose como suya,
-    para
-    todos los efectos, la última dirección registrada en
-    la empresa.</p>
-<p><strong>NOVENA.- Comunicación del Contrato</strong></p>
-<p>El contenido del presente Contrato se comunicará al Servicio Público de
-    Empleo Estatal en el plazo de los 10 días siguientes a la fecha de su concertación, que figura en el encabezamiento.
-</p>
-<p><strong>DÉCIMA.- Obligaciones del TRABAJADOR y EMPLEADOR.</strong></p>
-<p>En lo que respecta a las obligaciones, derechos y prohibiciones no
-    recogidas en este contrato, se regirán por el Estatuto de los Trabajadores, aprobado por el Real Decreto Legislativo
-    2/2015, de 23 de octubre.</p>
-<p>Ambas partes pueden acordar cláusulas
-    adicionales en el presente contrato y elaborarse en una hoja anexa a este documento, la cual hará parte del mismo y
-    dondedeberán consignarse los nombres y firmas de las partes contratantes, su documento de identidad y fecha en que
-    se
-    efectúe Modificación.
-    Estás cláusulas no podrán ir contra la LEY ni ser menos beneficiosas para el TRABAJADOR de lo que
-    ya dispone la LEY.</p>
-<p><strong>UNDÉCIMA.- Acciones legales. Legislación aplicable. Jurisdicción</strong></p>
-<p>Las Partes reconocen quedar obligadas
-    por el presente Contrato, ratifican todas y cada una de las cláusulas de este contrato, así como sus
-    correspondientes
-    anexos, si los hubiere, y sus efectos jurídicos y se comprometen a su cumplimiento de buena fe.</p>
-<p>Todo litigio relativo,
-    especialmente, pero no solo, a la formación, validez, interpretación, firma, existencia, ejecución o terminación de
-    este
-    Contrato y, en general, a la relación establecida entre las Partes, será sometido a la legislación española vigente
-    que
-    resulte de aplicación. Particularmente, se regirá por el Estatuto de los Trabajadores, aprobado por el Real Decreto
-    Legislativo 2/2015, de 23 de octubre.</p>
-<p>En caso de controversia,
-    diferencia, conflicto o reclamación en cuanto al Contrato, o en relación al mismo, las Partes acuerdan que se
-    someterán
-    a la jurisdicción social de los Juzgados y Tribunales competentes conforme a derecho.
-</p>
-<p>Y en prueba de conformidad y
-    aceptación de todo lo establecido, ambas Partes firman todas las hojas de este Contrato en tres ejemplares y a un
-    solo
-    efecto, en el lugar y fecha señalados en el encabezamiento</p>
+    </div>
+</div>
 
 <script src="/js/preview-new-hire.js"></script>
