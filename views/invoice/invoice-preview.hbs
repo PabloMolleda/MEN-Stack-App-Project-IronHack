@@ -1,1 +1,28 @@
-<h1>hola</h1>
+<h1>Invoice</h1>
+<h5>From:</h5>
+<p>{{user.company.name}}</p>
+<p>{{user.company.email}}</p>
+<p>{{user.company.address.street}},{{user.company.address.buildingNumber}},{{user.company.address.zipCode}},{{user.company.address.city}},{{user.company.address.country}}
+</p>
+<p>{{user.company.phone}}</p>
+<p>{{user.company.companyId}}</p>
+<h5>To:</h5>
+<p>{{client.name}} {{client.lastName}}</p>
+<p>{{client.email}}</p>
+<p>{{client.address.street}},{{client.address.buildingNumber}},{{client.address.zipCode}},{{client.address.city}},{{client.address.country}}
+</p>
+<p>{{client.phone}}</p>
+<p>{{date.paymentDate}}</p>
+<h3>DESCRIPTION</h3>
+<h3>RATE</h3>
+<h3>QUANTITY</h3>
+<h3>AMMOUNT</h3>
+{{#each product}}
+<p>{{product.ProductName}}</p>
+<p>{{product.price}}</p>
+<p>{{product.price}}</p>
+<p>{{product.VAT}}</p>
+{{/each}}
+<p>RESULTADO AMMOUNT</p>
+<p>Subtotal</p>
+<p>Total</p>

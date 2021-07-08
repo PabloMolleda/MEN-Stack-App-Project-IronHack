@@ -41,6 +41,7 @@ const newHireSchema = new Schema(
     agreementDetails: {
       startDate: { type: Date, required: true },
       endDate: { type: Date, required: true },
+      salaryPerYear: { type: Number, required: true },
       weeklyHours: { type: Number, required: true },
       yearlyBonus: { type: Number, required: true },
       functions: { type: String, default: null },
