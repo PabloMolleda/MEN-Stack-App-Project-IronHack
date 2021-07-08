@@ -64,15 +64,8 @@
     razones económicas, técnicas, organizativas o de producción. En este caso, el TRABAJADOR contará con los derechos
     reconocidos por el artículo 40 del Estatuto de los Trabajadores.</p>
 <h4><strong>TERCERA.- Jornada de trabajo a realizar por el TRABAJADOR</strong></h4>
-<p>La jornada de TRABAJADOR puede ser:</p>
-<p>⧠ A tiempo completo</p>
 <p>La jornada de trabajo será de {{agreementDetails.weeklyHours}} horas
     semanales.</p>
-
-{{!-- ⧠ A tiempo parcial
-
-La jornada de trabajo ordinaria será de (---------), (--) horas al día, (--) a la semana, (--)al mes, (--) al
-año, siendo esta jornada inferior a la de un trabajador a tiempo completo comparable. --}}
 
 <p><strong>CUARTA.- Duración del Contrato</strong></p>
 
@@ -102,11 +95,14 @@ año, siendo esta jornada inferior a la de un trabajador a tiempo completo compa
     período incumplido.</p>
 
 <p><strong>QUINTA.- Retribución del TRABAJADOR</strong></p>
-<p>El TRABAJADOR percibirá una retribución total de SALARIO BASE + PLUSES. {{!-- CALCULAR CON JAVASCRIPT --}}
+<p>El TRABAJADOR percibirá una retribución total de SALARIO BASE + PLUSES. <span id="total"></span>{{!-- CALCULAR CON
+    JAVASCRIPT --}}
     brutos,
     que
     se distribuirán en los siguientes conceptos salariales:</p>
-<p>Salario base:{{ agreementDetails.salaryPerYear}} €, pluses:{{agreementDetails.yearlyBonus}} €.</p>
+<p>Salario base: <span id="salaryPerYear">{{ agreementDetails.salaryPerYear}}</span> €, pluses:
+    <span id="yearlyBonus">{{agreementDetails.yearlyBonus}}</span> €.
+</p>
 <p>Se le entregará al TRABAJADOR un documento que justifique el pago de su salario por parte de
     la EMPLEADORA cada vez que se realice. El pago se procederá por el medio habitual de la empresa y que siempre quede
     justificado con un recibo bancario a la cuenta que haya aportado el TRABAJADOR.
@@ -192,3 +188,5 @@ año, siendo esta jornada inferior a la de un trabajador a tiempo completo compa
     aceptación de todo lo establecido, ambas Partes firman todas las hojas de este Contrato en tres ejemplares y a un
     solo
     efecto, en el lugar y fecha señalados en el encabezamiento</p>
+
+<script src="/js/preview-new-hire.js"></script>

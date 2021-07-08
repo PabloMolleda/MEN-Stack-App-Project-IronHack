@@ -11,12 +11,14 @@ router.get("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.re
 
 router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    const { name, lastName, email, phone } = req.body
 
-    const date = { invoiceDate, paymentDate, accrualDate } = req.body
-    const products = [{ productName, price, quantity, VAT }] = req.body
 
-    const address = { street, buildingNumber, zipCode, city, country } = req.body
+    const { name, lastName, email, phone, street, buildingNumber, zipCode, city, country, productName, price, quantity, VAT, invoiceDate, paymentDate, accrualDate } = req.body
+
+    const date = { invoiceDate, paymentDate, accrualDate }
+    const products = [{ productName, price, quantity, VAT }]
+
+    const address = { street, buildingNumber, zipCode, city, country }
     const client = { name, lastName, email, address, phone }
 
     const user = req.session.currentUser._id
@@ -64,14 +66,14 @@ router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
 
-    const { name, lastName, email, phone } = req.body
+    const { name, lastName, email, phone, street, buildingNumber, zipCode, city, country, productName, price, quantity, VAT, invoiceDate, paymentDate, accrualDate } = req.body
 
-    const date = { invoiceDate, paymentDate, accrualDate } = req.body
-    const products = [{ productName, price, quantity, VAT }] = req.body
+    const date = { invoiceDate, paymentDate, accrualDate }
+    const products = [{ productName, price, quantity, VAT }]
 
-    const address = { street, buildingNumber, zipCode, city, country } = req.body
+    const address = { street, buildingNumber, zipCode, city, country }
     const client = { name, lastName, email, address, phone }
-    const { invoice_id } = req.query
+
 
     Invoice
         .findByIdAndUpdate(invoice_id, { date, products, client })
@@ -87,7 +89,10 @@ router.get('/preview/:invoice_id', checkLoggedUser, checkCompanyOrAdmin, (req, r
     Invoice
         .findById(invoice_id)
         .populate('user')
-        .then((invoice) => { res.render("invoice/invoice-preview", invoice) })
+        .then((invoice) => {
+            res.render("invoice/invoice-preview", invoice)
+            console.log(invoice)
+        })
         .catch(err => console.log(err))
 })
 

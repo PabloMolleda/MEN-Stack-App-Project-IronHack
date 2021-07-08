@@ -10,13 +10,13 @@ router.get("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.re
 
 
 router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
-    const { name, lastName, phone, employeeId, NIN, profesionalTitle } = req.body
+    const { name, lastName, phone, employeeId, NIN, profesionalTitle, street, buildingNumber, zipCode, city, country, startDate, endDate, signDate, NINpercentage, TAX, VAT, seniorityDate, weeklyHours, hoursWage, yearlyBonus } = req.body
 
-    const address = { street, buildingNumber, zipCode, city, country } = req.body
+    const address = { street, buildingNumber, zipCode, city, country }
     const employee = { name, lastName, address, phone, employeeId, NIN, profesionalTitle }
 
-    const payrollDates = { startDate, endDate, signDate } = req.body
-    const percentage = { NINpercentage, TAX, VAT } = req.body
+    const payrollDates = { startDate, endDate, signDate }
+    const percentage = { NINpercentage, TAX, VAT }
     const payrollDetails = { seniorityDate, weeklyHours, hoursWage, yearlyBonus, percentage, payrollDates }
 
     const user = req.session.currentUser._id
@@ -63,13 +63,13 @@ router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
 router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    const { name, lastName, phone, employeeId, NIN, profesionalTitle } = req.body
+    const { name, lastName, phone, employeeId, NIN, profesionalTitle, street, buildingNumber, zipCode, city, country, startDate, endDate, signDate, NINpercentage, TAX, VAT, seniorityDate, weeklyHours, hoursWage, yearlyBonus } = req.body
 
-    const address = { street, buildingNumber, zipCode, city, country } = req.body
+    const address = { street, buildingNumber, zipCode, city, country }
     const employee = { name, lastName, address, phone, employeeId, NIN, profesionalTitle }
 
-    const payrollDates = { startDate, endDate, signDate } = req.body
-    const percentage = { NINpercentage, TAX, VAT } = req.body
+    const payrollDates = { startDate, endDate, signDate }
+    const percentage = { NINpercentage, TAX, VAT }
     const payrollDetails = { seniorityDate, weeklyHours, hoursWage, yearlyBonus, percentage, payrollDates }
 
     const { payroll_id } = req.query
@@ -89,7 +89,7 @@ router.get("/preview/:payroll_id", checkLoggedUser, checkCompanyOrAdmin, (req, r
     Payroll
         .findById(payroll_id)
         .populate('user')
-        .then(() => { res.render("payroll/payroll-preview", payroll) })
+        .then(payroll => { res.render("payroll/payroll-preview", payroll) })
         .catch(err => console.log(err))
 })
 
