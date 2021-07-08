@@ -11,16 +11,18 @@ router.get("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => res.re
 
 router.post("/create", checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    const date = { invoiceDate, paymentDate, accrualDate } = req.body
+    const { invoiceDate, paymentDate, accrualDate, productName, price, quantity, VAT, street, buildingNumber, zipCode, city, country, name, lastName, email, phone } = req.body
+    const date = { invoiceDate, paymentDate, accrualDate }
 
-    const products = [{ productName, price, quantity, VAT }] = req.body
+    const products = [{ productName, price, quantity, VAT }]
 
-    const address = { street, buildingNumber, zipCode, city, country } = req.body
-    const client = { name, lastName, email, address, phone } = req.body
+    const address = { street, buildingNumber, zipCode, city, country }
+    const client = { name, lastName, email, address, phone }
+    const user = req.session.currentUser._id
 
     Invoice
-        .create({ date, products, client })
-        .then(() => { res.redirect('/company-services/business/invoice/list') })
+        .create({ date, products, client, user })
+        .then(() => { res.redirect('/company/business/invoice/list') })
         .catch(err => console.log(err))
 
 })
@@ -61,13 +63,14 @@ router.get('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
 router.post('/edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    const date = { invoiceDate, paymentDate, accrualDate } = req.body
 
-    const products = [{ productName, price, quantity, VAT }] = req.body
+    const { invoiceDate, paymentDate, accrualDate, productName, price, quantity, VAT, street, buildingNumber, zipCode, city, country, name, lastName, email, phone } = req.body
+    const date = { invoiceDate, paymentDate, accrualDate }
 
-    const address = { street, buildingNumber, zipCode, city, country } = req.body
-    const client = { name, lastName, email, address, phone } = req.body
+    const products = [{ productName, price, quantity, VAT }]
 
+    const address = { street, buildingNumber, zipCode, city, country }
+    const client = { name, lastName, email, address, phone }
     const { invoice_id } = req.query
 
     Invoice
@@ -83,7 +86,8 @@ router.get('/preview/:invoice_id', checkLoggedUser, checkCompanyOrAdmin, (req, r
 
     Invoice
         .findById(invoice_id)
-        .then(() => { res.render("invoice/invoice-preview", invoice) })
+        .populate('user')
+        .then((invoice) => { res.render("invoice/invoice-preview", invoice) })
         .catch(err => console.log(err))
 })
 

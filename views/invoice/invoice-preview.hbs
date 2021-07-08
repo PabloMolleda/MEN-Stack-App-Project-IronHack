@@ -17,12 +17,14 @@
 <h3>RATE</h3>
 <h3>QUANTITY</h3>
 <h3>AMMOUNT</h3>
-{{#each product}}
-<p>{{product.ProductName}}</p>
-<p>{{product.price}}</p>
-<p>{{product.price}}</p>
-<p>{{product.VAT}}</p>
-{{/each}}
+
+<p>{{products.ProductName}}</p>
+<p id='price'>{{products.[0].price}}</p>
+<p id='quantity'>{{products.[0].quantity}}</p>
+<p id='VAT'>{{products.[0].VAT}}</p>
+
 <p>RESULTADO AMMOUNT</p>
 <p>Subtotal</p>
 <p>Total</p>
+
+<script src="/js/logic.js"></script>
