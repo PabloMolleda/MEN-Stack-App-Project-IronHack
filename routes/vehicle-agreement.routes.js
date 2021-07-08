@@ -74,10 +74,80 @@ router.get('/preview/print/:agreementID', checkLoggedUser, checkPersonalOrAdmin,
 
         doc.font('Times-Roman')
           .fontSize(12)
-          .text('METER LAS CONSTANTES');
+          .text(agreement)
+        /*  .text(line)
+         .moveDown()
+         .text(line1)
+         .moveDown()
+         .text(line2)
+         .moveDown()
+         .text(line3)
+         .moveDown()
+         .text(line4)
+         .moveDown()
+         .text(line5)
+         .moveDown()
+         .text(line6)
+         .moveDown()
+         .text(line7)
+         .moveDown()
+         .text(line8)
+         .moveDown()
+         .text(line9)
+         .moveDown()
+         .text(line10)
+         .moveDown()
+         .text(line11)
+         .moveDown()
+         .text(line12)
+         .moveDown()
+         .text(line13)
+         .moveDown()
+         .text(line14)
+         .moveDown()
+         .text(line15)
+         .moveDown()
+         .text(line16)
+         .moveDown()
+         .text(line17)
+         .moveDown()
+         .text(line18)
+         .moveDown()
+         .text(line19)
+         .moveDown()
+         .text(line20)
+         .moveDown()
+         .text(line21)
+         .moveDown()
+*/
+
         doc.end()
 
-        
+        const line = 'JP & Co.'
+        const line1 = 'VEHICLE BILL OF SALE'
+        const line2 = `I,${subject.name} ${subject.lastName},in consideration of $ ${purchasePrice},do hereby sell, transfer and convey to
+    ${user.name} ${user.lastname} ,the following vehicle:`
+        const line3 = 'DESCRIPTION OF VEHICLE'
+        const line4 = 'Year'
+        const line5 = `${vehicleInfo.year}`
+        const line6 = 'Status'
+        const line7 = `${vehicleInfo.status[0]}`
+        const line8 = 'Model'
+        const line9 = `${vehicleInfo.model}`
+        const line10 = 'Plate:'
+        const line11 = `${vehicleInfo.plate}`
+        const line12 = 'TERMS AND CONDITIONS (if applicable)'
+        const line13 = `${vehicleInfo.conditions}`
+        const line14 = 'SELLER'
+        const line15 = `Name: ${subject.name} ${subject.lastName}`
+        const line16 = `Address: ${subject.address.street},${subject.address.buildingNumber},${subject.address.zipCode},${subject.address.city},${subject.address.country}`
+        const line17 = `Date:${agreementDate}`
+        const line18 = 'BUYER'
+        const line19 = `Name:${user.name} ${user.lastName}`
+        const line20 = `Address:${user.address.street},${user.address.buildingNumber},${user.address.zipCode},${user.address.city},${user.address.country}`
+        const line21 = `Date:${agreementDate}`
+
+
 
       } else {
 
