@@ -1,47 +1,54 @@
-<h1>{{user.company.name}}</h1>
-<h1>PAYROLL</h1>
-<p>{{user.company.address.street}},{{user.company.address.buildingNumber}},{{user.company.address.zipCode}},{{user.company.address.city}},{{user.company.address.country}}
-</p>
-<p>{{user.company.phone}}</p>
-<p>{{user.company.email}}</p>
+<div class="container">
 
-<h5>EMPLOYEE INFORMATION</h5>
-<p>{{employee.name}} {{employee.name}}</p>
-<p>{{employee.address.street}},{{employee.address.buildingNumber}},{{employee.address.zipCode}},{{employee.address.city}},{{employee.address.country}}
-</p>
-<p>{{employee.phone}}</p>
+    <div class="row justify-content-center">
+
+        <h1>{{user.company.name}}</h1>
+        <h1>PAYROLL</h1>
+        <p>{{user.company.address.street}},{{user.company.address.buildingNumber}},{{user.company.address.zipCode}},{{user.company.address.city}},{{user.company.address.country}}
+        </p>
+        <p>{{user.company.phone}}</p>
+        <p>{{user.company.email}}</p>
+
+        <h5>EMPLOYEE INFORMATION</h5>
+        <p>{{employee.name}} {{employee.name}}</p>
+        <p>{{employee.address.street}},{{employee.address.buildingNumber}},{{employee.address.zipCode}},{{employee.address.city}},{{employee.address.country}}
+        </p>
+        <p>{{employee.phone}}</p>
 
 
-{{!-- TABLA DE LA DERECHA HE SACADO LOS DATOS DE NUESTRO MODELO Y NO CREO QUE QUEDE MAL --}}
-<h3>startDate</h3>
-<p>{{payrollDetails.payrollDates.startDate}}</p>
-<h3>endDate</h3>
-<p>{{payrollDetails.payrollDates.endDate}}</p>
-<h3>signDate</h3>
-<p>{{payrollDetails.payrollDates.signDate}}</p>
-<h3>NIN</h3>
-<p>{{employee.NIN}}</p>
-<h3>employeeId</h3>
-<p>{{employee.employeeId}}</p>
-<h3>profesionalTitle</h3>
-<p>{{employee.profesionalTitle}}</p>
+        {{!-- TABLA DE LA DERECHA HE SACADO LOS DATOS DE NUESTRO MODELO Y NO CREO QUE QUEDE MAL --}}
+        <h3>startDate</h3>
+        <p>{{payrollDetails.payrollDates.startDate}}</p>
+        <h3>endDate</h3>
+        <p>{{payrollDetails.payrollDates.endDate}}</p>
+        <h3>signDate</h3>
+        <p>{{payrollDetails.payrollDates.signDate}}</p>
+        <h3>NIN</h3>
+        <p>{{employee.NIN}}</p>
+        <h3>employeeId</h3>
+        <p>{{employee.employeeId}}</p>
+        <h3>profesionalTitle</h3>
+        <p>{{employee.profesionalTitle}}</p>
 
-<h3>Weekly Hours</h3>
-<p id="weeklyHours">{{payrollDetails.weeklyHours}}</p>
-<h3>hours Wage</h3>
-<p id="hoursWage">{{payrollDetails.hoursWage}}</p>
-<h3>yearlyBonus</h3>
-<p id="yearlyBonus">{{payrollDetails.yearlyBonus}}</p>
-<h3>total</h3>
-<p id="total"></p>
-<h3>total per Year</h3>
-<p id="totalPerYear"></p>
-<h3>NIN</h3>
-<p>{{payrollDetails.percentage.NINpercentage}}</p>
-<h3>TAX</h3>
-<p>{{payrollDetails.percentage.TAX}}</p>
-<h3>VAT</h3>
-<p>{{payrollDetails.percentage.VAT}}</p>
+        <h3>Weekly Hours</h3>
+        <p id="weeklyHours">{{payrollDetails.weeklyHours}}</p>
+        <h3>hours Wage</h3>
+        <p id="hoursWage">{{payrollDetails.hoursWage}}</p>
+        <h3>yearlyBonus</h3>
+        <p id="yearlyBonus">{{payrollDetails.yearlyBonus}}</p>
+        <h3>total</h3>
+        <p id="total"></p>
+        <h3>total per Year</h3>
+        <p id="totalPerYear"></p>
+        <h3>NIN</h3>
+        <p>{{payrollDetails.percentage.NINpercentage}}</p>
+        <h3>TAX</h3>
+        <p>{{payrollDetails.percentage.TAX}}</p>
+        <h3>VAT</h3>
+        <p>{{payrollDetails.percentage.VAT}}</p>
+
+    </div>
+</div>
 
 
 <script src="/js/preview-payroll.js"></script>
