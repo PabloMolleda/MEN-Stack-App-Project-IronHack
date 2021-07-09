@@ -20,9 +20,13 @@ router.get('/my-profile', checkLoggedUser, (req, res) => {
 
 router.get('/my-profile/edit', checkLoggedUser, (req, res) => {
 
-    const { currentUser } = req.session
-
-    res.render('profile/edit-profile', currentUser)
+    // const { currentUser } = req.session
+    const user_id = req.session.currentUser._id
+    User
+        .findById(user_id)
+        .then(user => res.render('profile/edit-profile', user))
+        .catch(err => console.log('An error has ocurred when showing company details', err))
+    // res.render('profile/edit-profile', currentUser)
 
 })
 
@@ -43,7 +47,7 @@ router.post('/my-profile/edit', checkLoggedUser, (req, res) => {
 
 router.get('/my-profile/company-edit', checkLoggedUser, checkCompanyOrAdmin, (req, res) => {
 
-    const { company_id}  = req.query
+    const { company_id } = req.query
 
     Company
         .findById(company_id)
@@ -57,7 +61,7 @@ router.post('/my-profile/company-edit', checkLoggedUser, checkCompanyOrAdmin, (r
 
     const { mail, name, companyId, phone } = req.body
     const address = { street, buildingNumber, zipCode, city, country } = req.body
-    
+
     const { company_id } = req.query
 
     Company
