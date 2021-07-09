@@ -75,6 +75,44 @@ router.get('/preview/print/:agreementID', checkLoggedUser, checkPersonalOrAdmin,
         doc.font('Times-Roman')
           .fontSize(12)
           .text(agreement)
+          .text(`  JP & Co.
+            VEHICLE BILL OF SALE
+            
+            I,{subject.name} {subject.lastName},in consideration of {purchasePrice},do hereby sell, transfer
+                and
+                convey
+                to
+                {user.name} {user.lastname} ,the following vehicle:
+
+
+            DESCRIPTION OF VEHICLE
+            Year:
+            {vehicleInfo.year}
+            Status:
+            {vehicleInfo.status[0]}
+            Model:
+        {vehicleInfo.model}
+            Plate:
+            $vehicleInfo.plate}
+            TERMS AND CONDITIONS (if applicable)
+            SELLER
+            Name:
+            {subject.name} {subject.lastName}
+            Address:
+            {subject.address.street},{subject.address.buildingNumber},$subject.address.zipCode},{subject.address.city},{subject.address.country}
+            
+            Date:
+            {agreementDate}
+            BUYER
+            Name:
+            {user.name} {user.lastName}
+          Address:
+            {user.address.street},{user.address.buildingNumber},{user.address.zipCode}$user.address.city}{user.address.country}
+            
+            Date:
+            {agreementDate}`)
+
+
         /*  .text(line)
          .moveDown()
          .text(line1)
