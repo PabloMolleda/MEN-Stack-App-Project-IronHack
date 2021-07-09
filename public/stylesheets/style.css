@@ -48,12 +48,8 @@ height: 500px;
     padding-top: 50px;
 }
 .makeStrong {
-  font-family: Times;
-  margin-bottom: 30px;
-  text-decoration: underline;
-  
+text-decoration: underline;
 }
 .capitalize {
   text-transform:capitalize;
-
 }
