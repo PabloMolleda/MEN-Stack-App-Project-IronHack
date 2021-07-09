@@ -42,3 +42,14 @@ h1 {
   height: 200px;
   padding:20px;
 }
+
+.makeStrong {
+  font-family: Times;
+  margin-bottom: 30px;
+  text-decoration: underline;
+  
+}
+.capitalize {
+  text-transform:capitalize;
+
+}

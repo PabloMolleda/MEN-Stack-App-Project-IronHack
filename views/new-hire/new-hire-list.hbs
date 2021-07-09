@@ -2,7 +2,7 @@
     <h1>Employment Agreements' list</h1>
     <hr>
     {{#each newHires}}
-    <p>- Document Ref.({{id}})</p>
+    <p class="capitalize">- Document Ref.({{id}})</p>
 
     <a href="/company/hr/employment-agreement/preview/{{id}}">
         Preview
@@ -13,5 +13,7 @@
     <a href="/company/hr/employment-agreement/edit?newHire_id={{id}}" class="btn btn-info">
         Edit
     </a>
+    <a href="/" class="btn btn-info">Home</a>
+
     {{/each}}
 </div>
