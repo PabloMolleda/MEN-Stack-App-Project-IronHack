@@ -7,69 +7,65 @@
             <div class="col-6">
                 <h2>VEHICLE BILL OF SALE</h2>
             </div>
-            <div class="d-flex justify-content-center align-items-center">
+            <div class="col-12">
                 <p>I,{{subject.name}} {{subject.lastName}},in consideration of $ {{purchasePrice}},do hereby sell,
                     transfer and convey to {{user.name}} {{user.lastname}} ,the following vehicle:</p>
             </div>
 
+            <hr>
 
-
-
+            <div class="col-12">
+                <h5><strong class="makeStrong">DESCRIPTION OF VEHICLE</strong></h5>
+            </div>
 
             <hr>
 
             <div class="col-12">
-                <h4>DESCRIPTION OF VEHICLE</h4>
-            </div>
-
-
-            <div class="col-12">
-                <h5>Year:</h5>
+                <p><strong class="makeStrong">Year:</strong>
+                <p>
                 <p>{{vehicleInfo.year}}</p>
-                <h5>Status:</h5>
+                <p><strong class="makeStrong">Status:</strong></p>
                 <p>{{vehicleInfo.status.[0]}}</p>
-                <h5>Model:</h5>
+                <p><strong class="makeStrong">Model:</strong></p>
                 <p>{{vehicleInfo.model}}</p>
-                <h5>Plate:</h5>
+                <p><strong class="makeStrong">Plate:</strong></p>
                 <p>{{vehicleInfo.plate}}</p>
-                <h4>TERMS AND CONDITIONS (if applicable)</h4>
+                <p><strong class="makeStrong">TERMS AND CONDITIONS (if applicable)</strong></p>
                 <p>{{vehicleInfo.conditions}}</p>
             </div>
 
-
+            <hr>
 
             <div class="col-12">
-                <h4>SELLER</h4>
-                <h5>Name:</h5>
+                <h7><strong class="makeStrong">SELLER</strong></h7>
+                <p><strong class="makeStrong">Name:</strong></p>
                 <p>{{subject.name}} {{subject.lastName}}</p>
-                <h5>Address:</h5>
+                <p><strong class="makeStrong">Address:</strong></p>
                 <p>{{subject.address.street}},{{subject.address.buildingNumber}},{{subject.address.zipCode}},{{subject.address.city}},{{subject.address.country}}
                 </p>
-                <h5>Date:</h5>
+                <p><strong class="makeStrong">Date:</strong></p>
                 <p>{{agreementDate}}</p>
 
             </div>
+
+            <div class="col-12">
+                <h7><strong class="makeStrong">BUYER</strong></h7>
+                <p><strong class="makeStrong">Name:</strong></p>
+                <p>{{user.name}} {{user.lastName}}</p>
+                <p><strong class="makeStrong">Address:</strong></p>
+                <p>{{user.address.street}},{{user.address.buildingNumber}},{{user.address.zipCode}},{{user.address.city}},{{user.address.country}}
+                </p>
+                <p><strong class="makeStrong">Date:</strong></p>
+                <p>{{agreementDate}}</p>
+            </div>
         </div>
 
-
-
-
-
-
-        <h4>BUYER</h4>
-        <h5>Name:</h5>
-        <p>{{user.name}} {{user.lastName}}</p>
-        <h5>Address:</h5>
-        <p>{{user.address.street}},{{user.address.buildingNumber}},{{user.address.zipCode}},{{user.address.city}},{{user.address.country}}
-        </p>
-        <h5>Date:</h5>
-        <p>{{agreementDate}}</p>
     </div>
 </div>
 
 </div>
 
-<button type='button' id="print-btn">Generate Agreement</button>
+<a href="/personal/legal/vehicle-agreement/preview/print/{{id}}" class="btn btn-info">Print</a>
 
 <script src="/js/APIHandler.js"></script>
 <script src="/js/documents.js"></script>

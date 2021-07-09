@@ -47,3 +47,13 @@ height: 500px;
     position: relative;
     padding-top: 50px;
 }
+.makeStrong {
+  font-family: Times;
+  margin-bottom: 30px;
+  text-decoration: underline;
+  
+}
+.capitalize {
+  text-transform:capitalize;
+
+}
