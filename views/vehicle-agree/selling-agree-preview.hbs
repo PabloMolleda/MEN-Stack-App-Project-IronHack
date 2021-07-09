@@ -2,65 +2,119 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <h2>JP & Co.</h2>
+                <h3>JP & Co.</h3>
             </div>
             <div class="col-6">
-                <h2>VEHICLE BILL OF SALE</h2>
+                <h3>VEHICLE BILL OF SALE</h3>
             </div>
-            <div class="col-12">
-                <p>I,{{subject.name}} {{subject.lastName}},in consideration of $ {{purchasePrice}},do hereby sell,
-                    transfer and convey to {{user.name}} {{user.lastname}} ,the following vehicle:</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p>I, {{subject.name}} {{subject.lastName}}, in consideration of $ {{purchasePrice}}, do hereby
+                            sell,
+                            transfer and convey to {{user.name}} {{user.lastname}}, the following vehicle:</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="container justify-content-around">
+                <div class="row">
+                    <div class="col-6">
+                        <h3><strong class="makeStrong">DESCRIPTION OF VEHICLE</strong></h3>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-3">
+                        <p><strong class="makeStrong">Year:</strong>
+                        <p>
+                        <p>{{vehicleInfo.year}}</p>
+                    </div>
+                    <div class="col-3">
+                        <p><strong class="makeStrong">Status:</strong></p>
+                        <p>{{vehicleInfo.status.[0]}}</p>
+                    </div>
+                    <div class="col-3">
+                        <p><strong class="makeStrong">Model:</strong></p>
+                        <p>{{vehicleInfo.model}}</p>
+                    </div>
+                    <div class="col-3">
+                        <p><strong class="makeStrong">Plate:</strong></p>
+                        <p>{{vehicleInfo.plate}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h3><strong class="makeStrong">TERMS AND CONDITIONS (if applicable)</strong></h3>
+                        <p>{{vehicleInfo.conditions}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h3><strong class="makeStrong">SELLER</strong></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-3">
+                        <p><strong class="makeStrong">Name:</strong></p>
+                        <p>{{subject.name}} {{subject.lastName}}</p>
+                    </div>
+                    <div class="col-3">
+                        <p><strong class="makeStrong">Address:</strong></p>
+                        <p>{{subject.address.street}}, {{subject.address.buildingNumber}}. Zip Code: {{subject.address.zipCode}},
+                            City: {{subject.address.city}}. Country: {{subject.address.country}}.
+                        </p>
+                    </div>
+                    <div class="col-3">
+                        <p><strong class="makeStrong">Date:</strong></p>
+                        <p>{{agreementDate}}</p>
+                    </div>
+                </div>
             </div>
 
             <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h3><strong class="makeStrong">BUYER</strong></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
 
-            <div class="col-12">
-                <h5><strong class="makeStrong">DESCRIPTION OF VEHICLE</strong></h5>
+                    <div class="col-3">
+                        <p><strong class="makeStrong">Name:</strong></p>
+                        <p>{{user.name}} {{user.lastName}}</p>
+                    </div>
+                    <div class="col-3">
+                        <p><strong class="makeStrong">Address:</strong></p>
+                        <p>{{user.address.street}}, {{user.address.buildingNumber}}. Zip Code: {{user.address.zipCode}}. City: {{user.address.city}}. Country: {{user.address.country}}.
+                        </p>
+                    </div>
+                    <p><strong class="makeStrong">Date:</strong></p>
+                    <p>{{agreementDate}}</p>
+                </div>
             </div>
 
-            <hr>
-
-            <div class="col-12">
-                <p><strong class="makeStrong">Year:</strong>
-                <p>
-                <p>{{vehicleInfo.year}}</p>
-                <p><strong class="makeStrong">Status:</strong></p>
-                <p>{{vehicleInfo.status.[0]}}</p>
-                <p><strong class="makeStrong">Model:</strong></p>
-                <p>{{vehicleInfo.model}}</p>
-                <p><strong class="makeStrong">Plate:</strong></p>
-                <p>{{vehicleInfo.plate}}</p>
-                <p><strong class="makeStrong">TERMS AND CONDITIONS (if applicable)</strong></p>
-                <p>{{vehicleInfo.conditions}}</p>
-            </div>
-
-            <hr>
-
-            <div class="col-12">
-                <h7><strong class="makeStrong">SELLER</strong></h7>
-                <p><strong class="makeStrong">Name:</strong></p>
-                <p>{{subject.name}} {{subject.lastName}}</p>
-                <p><strong class="makeStrong">Address:</strong></p>
-                <p>{{subject.address.street}},{{subject.address.buildingNumber}},{{subject.address.zipCode}},{{subject.address.city}},{{subject.address.country}}
-                </p>
-                <p><strong class="makeStrong">Date:</strong></p>
-                <p>{{agreementDate}}</p>
-
-            </div>
-
-            <div class="col-12">
-                <h7><strong class="makeStrong">BUYER</strong></h7>
-                <p><strong class="makeStrong">Name:</strong></p>
-                <p>{{user.name}} {{user.lastName}}</p>
-                <p><strong class="makeStrong">Address:</strong></p>
-                <p>{{user.address.street}},{{user.address.buildingNumber}},{{user.address.zipCode}},{{user.address.city}},{{user.address.country}}
-                </p>
-                <p><strong class="makeStrong">Date:</strong></p>
-                <p>{{agreementDate}}</p>
-            </div>
         </div>
-
     </div>
+
+</div>
 </div>
 
 </div>
