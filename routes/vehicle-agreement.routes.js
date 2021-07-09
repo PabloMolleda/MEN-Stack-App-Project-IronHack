@@ -74,8 +74,8 @@ router.get('/preview/print/:agreementID', checkLoggedUser, checkPersonalOrAdmin,
 
         doc.font('Times-Roman')
           .fontSize(12)
-          .text(agreement)
-        /*  .text(line)
+          // .text(agreement)
+        .text(line)
          .moveDown()
          .text(line1)
          .moveDown()
@@ -119,7 +119,6 @@ router.get('/preview/print/:agreementID', checkLoggedUser, checkPersonalOrAdmin,
          .moveDown()
          .text(line21)
          .moveDown()
-*/
 
         doc.end()
 
@@ -190,7 +189,7 @@ router.get('/edit', checkLoggedUser, checkPersonalOrAdmin, (req, res) => {
 
   VehicleAgreement
     .findById(agreement_ID)
-    .then(agreement => res.render('selling-vehicle-agree/edit-agree', agreement))
+    .then(agreement => res.render('vehicle-agree/edit-agree', agreement))
     .catch(err => console.log('An error has ocurred when showing agreement details', err))
 
 })
