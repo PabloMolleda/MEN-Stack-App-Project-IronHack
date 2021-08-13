@@ -16,7 +16,7 @@ module.exports = app => {
                 maxAge: 6000000 // 60 * 1000 ms === 1 min
             },
             store: MongoStore.create({
-                mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/JP'
+                mongoUrl: process.env.DB_REMOTE || 'mongodb://localhost/JP'
             })
         })
     )

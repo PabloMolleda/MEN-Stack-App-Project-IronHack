@@ -53,3 +53,8 @@ text-decoration: underline;
 .capitalize {
   text-transform:capitalize;
 }
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
